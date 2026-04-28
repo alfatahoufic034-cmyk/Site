@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Admin - ALFA IT SERVICE</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:," />
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body class="admin-dashboard-page">
+
+  <div class="dashboard-wrapper">
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+    <aside class="sidebar">
+
+      <div class="sidebar-logo">
+        <h2>ALFA IT</h2>
+        <p>Admin Panel</p>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="demandes.html">Gestion Demandes</a>
+        <a href="clients.html">Clients</a>
+        <a href="avis.html">Avis Clients</a>
+        <a href="historique.html">Historique</a>
+        <a href="admin-actualites.html">Actualités</a>
+        <a href="profil.html">Mon Profil</a>
+        <a href="#" id="logoutBtn">Déconnexion</a>
+      </nav>
+
+    </aside>
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+    <main class="dashboard-content">
+
+      <!-- =========================
+           HEADER
+      ========================== -->
+      <section class="dashboard-header">
+        <h1>
+          Bienvenue,
+          <span id="adminName">Administrateur</span> 👋
+        </h1>
+
+        <p>
+          Panneau de gestion sécurisé - ALFA IT SERVICE
+        </p>
+      </section>
+
+      <a href="demandes.html?filter=today" class="daily-alert-link">
+
+  <section class="daily-alert-box">
+
+    <div class="alert-left">
+
+      <!-- Rond indicateur -->
+      <div
+        class="alert-circle"
+        id="alertCircle"
+      ></div>
+
+      <!-- Infos -->
+      <div class="alert-info">
+        <h3>Nouvelles demandes aujourd’hui</h3>
+        <p id="todayDemandes">0</p>
+      </div>
+
+    </div>
+
+  </section>
+
+</a>
+
+      <!-- =========================
+           STATS
+      ========================== -->
+      <section class="stats-cards">
+
+        <div class="stat-card">
+          <h3 id="totalDemandes">0</h3>
+          <p>Total demandes</p>
+        </div>
+
+        <div class="stat-card">
+          <h3 id="enCours">0</h3>
+          <p>En cours</p>
+        </div>
+
+        <div class="stat-card">
+          <h3 id="terminees">0</h3>
+          <p>Terminées</p>
+        </div>
+
+        <div class="stat-card">
+          <h3 id="rejetees">0</h3>
+          <p>Rejetées</p>
+        </div>
+
+        <div class="stat-card">
+          <h3 id="totalClients">0</h3>
+          <p>Total clients</p>
+        </div>
+
+        <div class="stat-card">
+          <h3 id="totalAvis">0</h3>
+          <p>Total avis</p>
+        </div>
+
+      </section>
+
+      <!-- =========================
+           CHART UNIQUEMENT
+      ========================== -->
+      <section class="dashboard-grid">
+
+        <!-- =========================
+             CHART
+        ========================== -->
+        <div class="chart-box">
+          <h2>Suivi global des demandes</h2>
+          <canvas id="adminDemandChart"></canvas>
+        </div>
+
+      </section>
+
+      <!-- =========================
+           RECENT REQUESTS
+      ========================== -->
+      <section class="recent-requests">
+
+        <h2>Demandes récentes</h2>
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>Client</th>
+              <th>Service</th>
+              <th>Date</th>
+              <th>Statut</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody id="recentRequestsTable">
+            <tr>
+              <td colspan="5">
+                Chargement des demandes...
+              </td>
+            </tr>
+          </tbody>
+
+        </table>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- =========================
+       SCRIPTS
+  ========================== -->
+  <script src="../assets/js/supabaseClient.js"></script>
+  <script src="../assets/js/adminDashboard.js"></script>
+
+</body>
+</html>

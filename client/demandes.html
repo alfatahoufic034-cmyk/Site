@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mes Demandes - ALFA IT SERVICE</title>
+
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="icon" href="data:," />
+
+  <!-- Supabase CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="client-dashboard-page">
+
+  <div class="dashboard-wrapper">
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <h2>ALFA IT</h2>
+        <p>Client Space</p>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="../demande.html">Nouvelle demande</a>
+        <a href="demandes.html" class="active">Mes demandes</a>
+        <a href="historique.html">Historique</a>
+        <a href="../avis.html">Avis & Suggestions</a>
+        <a href="profil.html">Mon Profil</a>
+        <a href="#" id="logoutBtn">Déconnexion</a>
+      </nav>
+    </aside>
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+    <main class="dashboard-content">
+
+      <!-- HEADER -->
+      <section class="dashboard-header">
+        <h1>Mes Demandes</h1>
+        <p>Suivez toutes vos demandes de service en temps réel</p>
+      </section>
+
+      <!-- TABLE -->
+      <section class="recent-requests">
+        <h2>Liste complète des demandes</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Description</th>
+              <th>Localisation</th>
+              <th>Date</th>
+              <th>Statut</th>
+            </tr>
+          </thead>
+
+          <tbody id="demandesTable">
+            <tr>
+              <td colspan="5">Chargement des demandes...</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="../assets/js/supabaseClient.js"></script>
+  <script src="../assets/js/demandes.js"></script>
+</body>
+</html>

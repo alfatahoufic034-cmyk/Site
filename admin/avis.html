@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avis Clients - ALFA IT SERVICE</title>
+
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+  <link rel="icon" href="data:," />
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="admin-dashboard-page">
+
+  <div class="dashboard-wrapper">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <h2>ALFA IT</h2>
+        <p>Admin Panel</p>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="demandes.html">Gestion Demandes</a>
+        <a href="clients.html">Clients</a>
+        <a href="avis.html" class="active">Avis Clients</a>
+        <a href="historique.html">Historique</a>
+        <a href="profil.html">Mon Profil</a>
+        <a href="#" id="logoutBtn">Déconnexion</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="dashboard-content">
+
+      <!-- HEADER -->
+      <section class="dashboard-header">
+        <h1>Avis Clients</h1>
+        <p>Consultez les retours, notes et suggestions laissés par vos clients</p>
+      </section>
+
+      <!-- FILTRES -->
+      <section class="recent-requests" style="margin-bottom: 30px;">
+        <h2>Recherche & Filtres</h2>
+
+        <div class="filter-box" style="display:flex; gap:15px; flex-wrap:wrap; margin-top:20px;">
+          <select id="ratingFilter" class="form-control">
+            <option value="">Toutes les notes</option>
+            <option value="5">5 étoiles</option>
+            <option value="4">4 étoiles</option>
+            <option value="3">3 étoiles</option>
+            <option value="2">2 étoiles</option>
+            <option value="1">1 étoile</option>
+          </select>
+
+          <input
+            type="text"
+            id="avisSearch"
+            class="form-control"
+            placeholder="Rechercher par client ou message"
+          />
+        </div>
+      </section>
+
+      <!-- TABLE AVIS -->
+      <section class="recent-requests">
+        <h2>Liste des avis reçus</h2>
+
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Client</th>
+                <th>Email</th>
+                <th>Note</th>
+                <th>Message</th>
+                <th>Date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody id="adminAvisTable">
+              <tr>
+                <td colspan="6">Chargement des avis...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="../assets/js/supabaseClient.js"></script>
+  <script src="../assets/js/adminAvis.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actualités - ALFA IT SERVICE</title>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Supabase CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!--  CONFIG SUPABASE (DOIT CRÉER supabaseClient) -->
+  <script defer src="assets/js/supabaseclient.js"></script>
+
+  <!-- ACTUALITÉS -->
+  <script defer src="assets/js/actualite.js"></script>
+
+  <!-- MAIN -->
+  <script defer src="assets/js/main.js"></script>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Logo ALFA IT SERVICE">
+      <h1>ALFA IT SERVICE</h1>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="demande.html">Demande</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="actualite.html" class="active">Actualités</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="avis.html">Avis</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero-small">
+    <h2>Actualités & Conseils IT</h2>
+    <p>Découvrez nos dernières informations et astuces</p>
+  </section>
+
+  <!-- ACTUALITÉS -->
+  <section class="news-container" id="newsContainer">
+    <div class="news-card">
+      <div class="news-content">
+        <h3>Chargement des actualités...</h3>
+        <p>Veuillez patienter...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Besoin d’un service informatique ?</h2>
+    <a href="demande.html" class="btn btn-gold">Faire une demande</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 ALFA IT SERVICE</p>
+  </footer>
+
+</body>
+</html>

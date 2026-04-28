@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Avis | ALFA IT SERVICE</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:,">
+
+  <!-- Supabase CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body class="avis-page">
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="avis-header">
+    <h1>ALFA IT SERVICE</h1>
+    <p>Partagez votre expérience ⭐</p>
+  </header>
+
+  <!-- =========================
+       CONTAINER
+  ========================== -->
+  <div class="avis-container">
+
+    <h2>Laissez votre avis</h2>
+    <p class="intro">
+      Votre satisfaction est notre priorité.
+    </p>
+
+    <!-- =========================
+         FORMULAIRE AVIS
+    ========================== -->
+    <form id="avisForm" class="avis-form">
+
+      <!-- NOTE ETOILES -->
+      <div class="rating" id="ratingStars">
+        <span class="star" data-value="1">&#9733;</span>
+        <span class="star" data-value="2">&#9733;</span>
+        <span class="star" data-value="3">&#9733;</span>
+        <span class="star" data-value="4">&#9733;</span>
+        <span class="star" data-value="5">&#9733;</span>
+      </div>
+
+      <!-- MESSAGE -->
+      <textarea
+        id="messageText"
+        placeholder="Écrivez votre avis ici..."
+        required
+      ></textarea>
+
+      <!-- BOUTON -->
+      <button type="submit">
+        Envoyer mon avis
+      </button>
+
+      <!-- MESSAGE RETOUR -->
+      <div id="feedback" class="message"></div>
+
+    </form>
+
+    <!-- =========================
+         LISTE DES AVIS
+    ========================== -->
+    <div class="avis-list">
+      <h3>Avis récents</h3>
+
+      <div id="avisList">
+        <p>Chargement des avis...</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="avis-footer">
+    <p>
+      © 2026
+      <span>ALFA IT SERVICE</span>
+    </p>
+  </footer>
+
+  <!-- =========================
+       SCRIPTS
+  ========================== -->
+
+  <!-- Supabase Client -->
+  <script src="assets/js/supabaseClient.js"></script>
+
+  <!-- JS Avis -->
+  <script src="assets/js/avis.js"></script>
+
+</body>
+</html>

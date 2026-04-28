@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - ALFA IT SERVICE</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <!-- favicon fix -->
+    <link rel="icon" href="data:,">
+
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body class="login-page">
+
+<div class="login-container">
+
+    <div class="login-box">
+
+        <h2>ALFA IT SERVICE</h2>
+        <p class="login-subtitle">
+            Connexion à votre espace sécurisé
+        </p>
+
+        <form id="loginForm" autocomplete="on">
+
+            <!-- EMAIL -->
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Entrez votre email"
+                    autocomplete="email"
+                    required
+                >
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="input-group">
+                <label for="password">Mot de passe</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Mot de passe"
+                    autocomplete="current-password"
+                    required
+                >
+            </div>
+
+            <!-- MESSAGE -->
+            <p id="loginMsg" class="login-msg"></p>
+
+            <!-- OPTIONS -->
+            <div class="login-options">
+                <label>
+                    <input type="checkbox" id="rememberMe">
+                    Se souvenir de moi
+                </label>
+
+                <a href="forgot-password.html">
+                    Mot de passe oublié ?
+                </a>
+            </div>
+
+            <!-- BUTTON -->
+            <button type="submit" class="btn login-btn">
+                Se connecter
+            </button>
+
+        </form>
+
+        <p class="login-footer">
+            Pas de compte ?
+            <a href="register.html">
+                Créer un compte
+            </a>
+        </p>
+
+    </div>
+
+</div>
+
+<!-- Supabase Client -->
+<script src="../assets/js/supabaseClient.js"></script>
+
+<!-- Login JS -->
+<script src="../assets/js/login.js"></script>
+
+</body>
+</html>

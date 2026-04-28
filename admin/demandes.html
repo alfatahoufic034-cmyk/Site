@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Gestion des Demandes - ALFA IT SERVICE</title>
+
+  <!-- CSS ADMIN -->
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:," />
+
+  <!-- Supabase CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body class="admin-dashboard-page">
+
+  <div class="dashboard-wrapper">
+
+    <!-- =========================
+         SIDEBAR ADMIN
+    ========================== -->
+    <aside class="sidebar">
+
+      <div class="sidebar-logo">
+        <h2>ALFA IT</h2>
+        <p>Admin Panel</p>
+      </div>
+
+      <nav class="sidebar-menu">
+
+        <a href="dashboard.html">
+          Dashboard
+        </a>
+
+        <a href="demandes.html" class="active">
+          Gestion Demandes
+        </a>
+
+        <a href="clients.html">
+          Clients
+        </a>
+
+        <a href="avis.html">
+          Avis Clients
+        </a>
+
+        <a href="historique.html">
+          Historique
+        </a>
+
+        <a href="profil.html">
+          Mon Profil
+        </a>
+
+        <a href="#" id="logoutBtn">
+          Déconnexion
+        </a>
+
+      </nav>
+    </aside>
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+    <main class="dashboard-content">
+
+      <!-- =========================
+           HEADER
+      ========================== -->
+      <section class="dashboard-header">
+        <h1>Gestion des Demandes</h1>
+        <p>
+          Consultez, validez, rejetez et suivez toutes les demandes clients
+        </p>
+      <section class="filters-box"></section>
+
+      <!-- =========================
+           FILTRES
+      ========================== -->
+      <section class="recent-requests">
+
+        <h2>Filtres rapides</h2>
+
+        <div class="filter-box">
+
+          <!-- FILTRE STATUT -->
+          <select id="statusFilter" class="form-control">
+            <option value="">
+              Tous les statuts
+            </option>
+
+            <option value="en_cours">
+              En cours
+            </option>
+
+            <option value="terminee">
+              Terminée
+            </option>
+
+            <option value="rejetee">
+              Rejetée
+            </option>
+          </select>
+
+          <!-- RECHERCHE -->
+          <input
+            type="text"
+            id="searchInput"
+            class="form-control"
+            placeholder="Rechercher par nom ou email"
+          />
+
+        </div>
+
+      </section>
+
+      <!-- =========================
+           TABLE DEMANDES
+      ========================== -->
+      <section class="recent-requests">
+
+        <h2>Liste complète des demandes</h2>
+
+        <div class="table-responsive">
+
+          <table>
+
+            <thead>
+              <tr>
+                <th>Client</th>
+                <th>Email</th>
+                <th>Téléphone</th>
+                <th>Service</th>
+                <th>Description</th>
+                <th>Localisation</th>
+                <th>Date</th>
+                <th>Statut</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody id="adminDemandesTable">
+
+              <tr>
+                <td colspan="9">
+                  Chargement des demandes...
+                </td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- =========================
+       SCRIPTS
+  ========================== -->
+
+  <!-- Client Supabase -->
+  <script src="../assets/js/supabaseClient.js"></script>
+
+  <!-- JS Gestion demandes admin -->
+  <script src="../assets/js/adminDemandes.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Historique Admin - ALFA IT SERVICE</title>
+
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+  <link rel="icon" href="data:," />
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="admin-dashboard-page">
+
+  <div class="dashboard-wrapper">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <h2>ALFA IT</h2>
+        <p>Admin Panel</p>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="demandes.html">Gestion Demandes</a>
+        <a href="clients.html">Clients</a>
+        <a href="avis.html">Avis Clients</a>
+        <a href="historique.html" class="active">Historique</a>
+        <a href="profil.html">Mon Profil</a>
+        <a href="#" id="logoutBtn">Déconnexion</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="dashboard-content">
+
+      <!-- HEADER -->
+      <section class="dashboard-header">
+        <h1>Historique Administrateur</h1>
+        <p>Suivi complet des demandes traitées et archivées</p>
+      </section>
+
+      <!-- FILTRES -->
+      <section class="recent-requests" style="margin-bottom: 30px;">
+        <h2>Filtres de recherche</h2>
+
+        <div class="filter-box" style="display:flex; gap:15px; flex-wrap:wrap; margin-top:20px;">
+          <select id="statusFilter" class="form-control">
+            <option value="">Tous les statuts</option>
+            <option value="terminee">Terminées</option>
+            <option value="rejetee">Rejetées</option>
+            <option value="en_cours">En cours</option>
+          </select>
+
+          <input
+            type="text"
+            id="searchInput"
+            class="form-control"
+            placeholder="Recherche par client, email ou service"
+          />
+        </div>
+      </section>
+
+      <!-- TABLE -->
+      <section class="recent-requests">
+        <h2>Historique des demandes</h2>
+
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Client</th>
+                <th>Email</th>
+                <th>Téléphone</th>
+                <th>Service</th>
+                <th>Description</th>
+                <th>Localisation</th>
+                <th>Date création</th>
+                <th>Statut</th>
+              </tr>
+            </thead>
+
+            <tbody id="historiqueTable">
+              <tr>
+                <td colspan="8">Chargement de l'historique...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="../assets/js/supabaseClient.js"></script>
+  <script src="../assets/js/adminHistorique.js"></script>
+
+</body>
+</html>

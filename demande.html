@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Demande de service - ALFA IT SERVICE</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:,">
+
+  <!-- SUPABASE CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- SUPABASE CLIENT -->
+  <script src="assets/js/supabaseClient.js"></script>
+
+  <!-- JS DEMANDE -->
+  <script defer src="assets/js/demande.js"></script>
+</head>
+
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Logo ALFA IT SERVICE">
+      <h1>ALFA IT SERVICE</h1>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero-small">
+    <h2>Faire une demande de service</h2>
+    <p>Remplissez le formulaire ci-dessous</p>
+  </section>
+
+  <!-- ===== FORMULAIRE ===== -->
+  <section class="form-section">
+    <form id="serviceForm" autocomplete="on">
+
+      <!-- NOM COMPLET -->
+      <div class="form-group">
+        <label for="name">Nom complet</label>
+        <input
+          type="text"
+          id="name"
+          placeholder="Ex: Kossi Mensah"
+          required
+        >
+      </div>
+
+      <!-- EMAIL -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Ex: kossi@gmail.com"
+          autocomplete="email"
+          required
+        >
+      </div>
+
+      <!-- TELEPHONE -->
+      <div class="form-group">
+        <label for="phone">Téléphone</label>
+        <input
+          type="tel"
+          id="phone"
+          placeholder="Ex: +228 90 00 00 00"
+          required
+        >
+      </div>
+
+      <!-- SERVICE -->
+      <div class="form-group">
+        <label for="service">Service demandé</label>
+        <select id="service" required>
+          <option value="">Choisir un service</option>
+          <option value="maintenance">Maintenance informatique</option>
+          <option value="reseau">Réseaux & Internet</option>
+          <option value="assistance">Assistance IT</option>
+          <option value="web">Développement Web</option>
+        </select>
+      </div>
+
+      <!-- DESCRIPTION -->
+      <div class="form-group">
+        <label for="description">Description du problème</label>
+        <textarea
+          id="description"
+          rows="5"
+          placeholder="Ex: Mon ordinateur ne s'allume plus depuis ce matin..."
+          required
+        ></textarea>
+      </div>
+
+      <!-- LOCALISATION -->
+      <div class="form-group">
+        <label for="location">Localisation (optionnel)</label>
+        <input
+          type="text"
+          id="location"
+          placeholder="Ex: Lomé, Agoè"
+        >
+      </div>
+
+      <!-- BOUTON -->
+      <button type="submit" class="btn btn-gold">
+        Envoyer la demande
+      </button>
+
+      <!-- MESSAGE -->
+      <p id="successMessage" class="success-message"></p>
+
+    </form>
+  </section>
+
+</body>
+</html>
