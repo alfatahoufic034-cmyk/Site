@@ -13,182 +13,164 @@ document.addEventListener("DOMContentLoaded", async () => {
   const recentRequestsTable = document.getElementById("recentRequestsTable");
   const logoutBtn = document.getElementById("logoutBtn");
 
-  let demandChartInstance = null;
+  let chartInstance = null;
 
-  try {
+  // =====================================
+  // CHECK SUPABASE
+  // =====================================
+  if (typeof supabaseClient === "undefined") {
+    console.error("❌ supabaseClient introuvable");
+    return;
+  }
 
-    // =====================================
-    // 🔐 SESSION
-    // =====================================
-    const { data: { session }, error } =
-      await supabaseClient.auth.getSession();
+  // =====================================
+  // SESSION
+  // =====================================
+  const { data: { session } } =
+    await supabaseClient.auth.getSession();
 
-    if (error || !session) {
-      window.location.href = "../auth/login.html";
+  if (!session) {
+    window.location.href = "../auth/login.html";
+    return;
+  }
+
+  const user = session.user;
+  const userId = user.id;
+
+  console.log("✅ USER :", userId);
+
+  // =====================================
+  // PROFILE
+  // =====================================
+  async function loadProfile() {
+
+    const { data } = await supabaseClient
+      .from("profiles")
+      .select("nom, prenom, phone")
+      .eq("id", userId)
+      .maybeSingle();
+
+    const fullName = `${data?.nom || ""} ${data?.prenom || ""}`.trim();
+
+    if (welcomeName) welcomeName.textContent = fullName || "Client";
+    if (clientNom) clientNom.textContent = data?.nom || "-";
+    if (clientEmail) clientEmail.textContent = user.email || "-";
+    if (clientPhone) clientPhone.textContent = data?.phone || "-";
+  }
+
+  // =====================================
+  // DEMANDES
+  // =====================================
+  async function loadDemandes() {
+
+    const { data } = await supabaseClient
+      .from("demandes")
+      .select("service, statut, created_at")
+      .eq("user_id", userId)
+      .order("created_at", { ascending: false });
+
+    const demandes = data || [];
+
+    let enCoursCount = 0;
+    let termineesCount = 0;
+    let rejeteesCount = 0;
+
+    demandes.forEach((item) => {
+
+      const status = String(item.statut || "")
+        .toLowerCase();
+
+      if (status.includes("cours")) enCoursCount++;
+      else if (status.includes("term")) termineesCount++;
+      else if (status.includes("rej")) rejeteesCount++;
+    });
+
+    if (totalDemandes) totalDemandes.textContent = demandes.length;
+    if (enCours) enCours.textContent = enCoursCount;
+    if (terminees) terminees.textContent = termineesCount;
+    if (rejetees) rejetees.textContent = rejeteesCount;
+
+    renderTable(demandes);
+    renderChart(enCoursCount, termineesCount, rejeteesCount);
+  }
+
+  // =====================================
+  // TABLE
+  // =====================================
+  function renderTable(demandes) {
+
+    if (!recentRequestsTable) return;
+
+    if (!demandes.length) {
+      recentRequestsTable.innerHTML =
+        `<tr><td colspan="3">Aucune demande</td></tr>`;
       return;
     }
 
-    const user = session.user;
-    const userId = user.id;
-
-    const userEmail = (user.email || "").trim().toLowerCase();
-
-    console.log("✅ USER CONNECTÉ :", userId);
-
-    // =====================================
-    // 👤 PROFIL
-    // =====================================
-    async function loadProfile() {
-
-      const { data, error } = await supabaseClient
-        .from("profiles")
-        .select("nom, prenom, phone")
-        .eq("id", userId)
-        .maybeSingle();
-
-      if (error) {
-        console.error(error.message);
-        return;
-      }
-
-      const fullName =
-        `${data?.nom || ""} ${data?.prenom || ""}`.trim() || "Client";
-
-      if (welcomeName) welcomeName.textContent = fullName;
-      if (clientNom) clientNom.textContent = fullName;
-      if (clientEmail) clientEmail.textContent = userEmail || "-";
-      if (clientPhone) clientPhone.textContent = data?.phone || "-";
-    }
-
-    // =====================================
-    // 📥 DEMANDES (FIX USER_ID ICI)
-    // =====================================
-    async function loadDemandes() {
-
-      const { data, error } = await supabaseClient
-        .from("demandes")
-        .select("service, statut, created_at, user_id")
-        .eq("user_id", userId) // 🔥 IMPORTANT
-        .order("created_at", { ascending: false });
-
-      if (error) {
-        console.error("❌ SUPABASE ERROR:", error.message);
-        return;
-      }
-
-      const demandes = data || [];
-
-      console.log("📦 DEMANDES :", demandes);
-
-      let enCoursCount = 0;
-      let termineesCount = 0;
-      let rejeteesCount = 0;
-
-      demandes.forEach((item) => {
-
-        const status = (item.statut || "")
-          .toLowerCase()
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "");
-
-        if (status.includes("en cours") || status.includes("encours")) {
-          enCoursCount++;
-        }
-
-        if (status.includes("termine")) {
-          termineesCount++;
-        }
-
-        if (status.includes("rejete")) {
-          rejeteesCount++;
-        }
-      });
-
-      if (totalDemandes) totalDemandes.textContent = demandes.length;
-      if (enCours) enCours.textContent = enCoursCount;
-      if (terminees) terminees.textContent = termineesCount;
-      if (rejetees) rejetees.textContent = rejeteesCount;
-
-      renderRecentRequests(demandes);
-      renderChart(enCoursCount, termineesCount, rejeteesCount);
-    }
-
-    // =====================================
-    // 📋 TABLE
-    // =====================================
-    function renderRecentRequests(demandes) {
-
-      if (!recentRequestsTable) return;
-
-      if (!demandes.length) {
-        recentRequestsTable.innerHTML = `
-          <tr><td colspan="3">Aucune demande trouvée</td></tr>
-        `;
-        return;
-      }
-
-      recentRequestsTable.innerHTML = demandes.slice(0, 5).map((item) => `
-        <tr>
-          <td>${item.service || "-"}</td>
-          <td>${
-            item.created_at
-              ? new Date(item.created_at).toLocaleDateString("fr-FR")
-              : "-"
-          }</td>
-          <td>${item.statut || "-"}</td>
-        </tr>
-      `).join("");
-    }
-
-    // =====================================
-    // 📊 CHART
-    // =====================================
-    function renderChart(enCours, termine, rejete) {
-
-      const canvas = document.getElementById("demandChart");
-      if (!canvas || typeof Chart === "undefined") return;
-
-      const ctx = canvas.getContext("2d");
-
-      if (demandChartInstance) {
-        demandChartInstance.destroy();
-      }
-
-      demandChartInstance = new Chart(ctx, {
-        type: "doughnut",
-        data: {
-          labels: ["En cours", "Terminées", "Rejetées"],
-          datasets: [{
-            data: [enCours, termine, rejete],
-            borderWidth: 1
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { position: "bottom" }
-          }
-        }
-      });
-    }
-
-    // =====================================
-    // 🔓 LOGOUT
-    // =====================================
-    if (logoutBtn) {
-      logoutBtn.addEventListener("click", async (e) => {
-        e.preventDefault();
-        await supabaseClient.auth.signOut();
-        window.location.href = "../auth/login.html";
-      });
-    }
-
-    await loadProfile();
-    await loadDemandes();
-
-  } catch (err) {
-    console.error("❌ DASHBOARD ERROR:", err.message);
+    recentRequestsTable.innerHTML = demandes.slice(0, 5).map(d => `
+      <tr>
+        <td>${d.service || "-"}</td>
+        <td>${d.created_at ? new Date(d.created_at).toLocaleDateString("fr-FR") : "-"}</td>
+        <td>${d.statut || "-"}</td>
+      </tr>
+    `).join("");
   }
+
+  // =====================================
+  // CHART FIX FINAL
+  // =====================================
+  function renderChart(enCours, terminees, rejetees) {
+
+    const canvas = document.getElementById("demandChart");
+
+    if (!canvas) {
+      console.error("❌ Canvas introuvable");
+      return;
+    }
+
+    if (typeof Chart === "undefined") {
+      console.error("❌ Chart.js non chargé");
+      return;
+    }
+
+    const ctx = canvas.getContext("2d");
+
+    if (chartInstance) {
+      chartInstance.destroy();
+    }
+
+    chartInstance = new Chart(ctx, {
+      type: "doughnut",
+      data: {
+        labels: ["En cours", "Terminées", "Rejetées"],
+        datasets: [{
+          data: [enCours, terminees, rejetees],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: "bottom" }
+        }
+      }
+    });
+  }
+
+  // =====================================
+  // LOGOUT
+  // =====================================
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      await supabaseClient.auth.signOut();
+      window.location.href = "../auth/login.html";
+    });
+  }
+
+  // START
+  await loadProfile();
+  await loadDemandes();
 
 });

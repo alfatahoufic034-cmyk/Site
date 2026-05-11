@@ -6,16 +6,13 @@
 
   <title>Dashboard Client - ALFA IT SERVICE</title>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="../assets/css/style.css" />
-
-  <!-- Favicon -->
   <link rel="icon" href="data:," />
 
-  <!-- Chart.js -->
+  <!-- 🔥 Chart.js (VERSION STABLE COMME ADMIN) -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <!-- Supabase CDN -->
+  <!-- Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
@@ -23,159 +20,67 @@
 
   <div class="dashboard-wrapper">
 
-   <!-- =========================
-     SIDEBAR
-========================== -->
-<aside class="sidebar">
-  <div class="sidebar-logo">
-    <h2>ALFA IT</h2>
-    <p>Client Space</p>
-  </div>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <h2>ALFA IT</h2>
+        <p>Client Space</p>
+      </div>
 
-  <nav class="sidebar-menu">
+      <nav class="sidebar-menu">
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="../demande.html">Nouvelle demande</a>
+        <a href="demandes.html">Mes demandes</a>
+        <a href="historique.html">Historique</a>
+        <a href="../avis.html">Avis & Suggestions</a>
+        <a href="profil.html">Mon Profil</a>
+        <a href="#" id="logoutBtn">Déconnexion</a>
+      </nav>
+    </aside>
 
-    <!-- Dashboard principal -->
-    <a href="dashboard.html" class="active">
-      Dashboard
-    </a>
+    <!-- MAIN -->
+    <main class="dashboard-content">
 
-    <!-- Nouvelle demande -->
-    <a href="../demande.html">
-      Nouvelle demande
-    </a>
+      <!-- HEADER -->
+      <section class="dashboard-header">
+        <h1>Bienvenue, <span id="welcomeName">Chargement...</span> 👋</h1>
+        <p>Espace Client sécurisé - ALFA IT SERVICE</p>
+      </section>
 
-    <!-- Mes demandes -->
-    <a href="demandes.html">
-      Mes demandes
-    </a>
+      <!-- STATS -->
+      <section class="stats-cards">
+        <div class="stat-card"><h3 id="totalDemandes">0</h3><p>Total demandes</p></div>
+        <div class="stat-card"><h3 id="enCours">0</h3><p>En cours</p></div>
+        <div class="stat-card"><h3 id="terminees">0</h3><p>Terminées</p></div>
+        <div class="stat-card"><h3 id="rejetees">0</h3><p>Rejetées</p></div>
+      </section>
 
-    <!-- Historique -->
-    <a href="historique.html">
-      Historique
-    </a>
+      <!-- GRID -->
+      <section class="dashboard-grid">
 
-    <!-- Avis -->
-    <a href="../avis.html">
-      Avis & Suggestions
-    </a>
+        <!-- CHART -->
+        <div class="chart-box">
+          <h2>Suivi de vos demandes</h2>
+          <canvas id="demandChart"></canvas>
+        </div>
 
-    <!-- Mon Profil -->
-    <a href="profil.html">
-      Mon Profil
-    </a>
+        <!-- PROFILE -->
+        <div class="profile-box">
+          <h2>Mon Profil</h2>
 
-    <!-- Déconnexion -->
-    <a href="#" id="logoutBtn">
-      Déconnexion
-    </a>
+          <p><strong>Nom :</strong> <span id="clientNom">Chargement...</span></p>
+          <p><strong>Prénom :</strong> <span id="clientPrenom">Chargement...</span></p>
+          <p><strong>Email :</strong> <span id="clientEmail">Chargement...</span></p>
+          <p><strong>Téléphone :</strong> <span id="clientPhone">Chargement...</span></p>
 
-  </nav>
-</aside>
-   <!-- =========================
-     MAIN CONTENT
-========================== -->
-<main class="dashboard-content">
-
-  <!-- HEADER -->
-  <section class="dashboard-header">
-    <h1>
-      Bienvenue,
-      <span id="welcomeName">Chargement...</span> 👋
-    </h1>
-
-    <p>
-      Espace Client sécurisé - ALFA IT SERVICE
-    </p>
-  </section>
-
-  <!-- =========================
-       STATISTIQUES
-  ========================== -->
-  <section class="stats-cards">
-
-    <!-- Total des demandes -->
-    <div class="stat-card">
-      <h3 id="totalDemandes">0</h3>
-      <p>Total demandes</p>
-    </div>
-
-    <!-- Demandes en cours -->
-    <div class="stat-card">
-      <h3 id="enCours">0</h3>
-      <p>En cours</p>
-    </div>
-
-    <!-- Demandes terminées -->
-    <div class="stat-card">
-      <h3 id="terminees">0</h3>
-      <p>Terminées</p>
-    </div>
-
-    <!-- Demandes rejetées -->
-    <div class="stat-card">
-      <h3 id="rejetees">0</h3>
-      <p>Rejetées</p>
-    </div>
-
-  </section>
+          <a href="../demande.html" class="btn login-btn">
+            Faire une nouvelle demande
+          </a>
+        </div>
 
       </section>
 
-<!-- =========================
-     CHART + PROFIL
-========================== -->
-<section class="dashboard-grid">
-
-  <!-- CHART -->
-  <div class="chart-box">
-    <h2>Suivi de vos demandes</h2>
-    <canvas id="demandChart"></canvas>
-  </div>
-
-  <!-- PROFILE -->
-  <div class="profile-box">
-    <h2>Mon Profil</h2>
-
-    <!--
-      Ces informations seront remplies automatiquement
-      depuis Supabase via clientDashboard.js
-    -->
-
-    <p>
-      <strong>Nom :</strong>
-      <span id="clientNom">Chargement...</span>
-    </p>
-
-    <p>
-      <strong>Prénom :</strong>
-      <span id="clientPrenom">Chargement...</span>
-    </p>
-
-    <p>
-      <strong>Email :</strong>
-      <span id="clientEmail">Chargement...</span>
-    </p>
-
-    <p>
-      <strong>Téléphone :</strong>
-      <span id="clientPhone">Chargement...</span>
-    </p>
-
-    <p>
-      <strong>Type de compte :</strong>
-      <span id="clientRole">Chargement...</span>
-    </p>
-
-    <a href="../demande.html" class="btn login-btn">
-      Faire une nouvelle demande
-    </a>
-  </div>
-
-</section>
-
-      <!-- =========================
-           DEMANDES RÉCENTES
-      ========================== -->
+      <!-- TABLE -->
       <section class="recent-requests">
         <h2>Demandes récentes</h2>
 
@@ -189,11 +94,8 @@
           </thead>
 
           <tbody id="recentRequestsTable">
-            <!-- rempli automatiquement par JS -->
             <tr>
-              <td colspan="3">
-                Chargement des demandes...
-              </td>
+              <td colspan="3">Chargement...</td>
             </tr>
           </tbody>
         </table>
@@ -202,15 +104,8 @@
     </main>
   </div>
 
-  <!-- =========================
-       SCRIPTS
-       ordre important
-  ========================== -->
-
-  <!-- Supabase client -->
+  <!-- SCRIPTS (IMPORTANT ORDRE) -->
   <script src="../assets/js/supabaseClient.js"></script>
-
-  <!-- Dashboard JS -->
   <script src="../assets/js/clientDashboard.js"></script>
 
 </body>
