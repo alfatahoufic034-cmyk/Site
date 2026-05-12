@@ -2533,3 +2533,35 @@ body {
   width: 100% !important;
   height: 100% !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+page contact suit
+.message {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.message.success {
+  background: #d4edda;
+  color: #155724;
+}
+
+.message.error {
+  background: #f8d7da;
+  color: #721c24;
+}
