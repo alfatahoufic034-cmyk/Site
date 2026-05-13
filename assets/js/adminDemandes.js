@@ -10,6 +10,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   let allDemandes = [];
 
+
+      // =====================================
+  // EMAILJS INIT
+  // =====================================
+  emailjs.init("KusED4VK8YahzB6qu");
+
+  if (typeof emailjs === "undefined") {
+    console.error("❌ EmailJS non chargé");
+    return;
+  }
+
   // =====================================
   // SECURITE SUPABASE
   // =====================================
@@ -136,15 +147,27 @@ document.addEventListener("DOMContentLoaded", async () => {
           </select>
         </td>
 
-        <td>
-          <button class="update-btn" data-id="${item.id}">
-            Mettre à jour
-          </button>
-        </td>
+        <td class="actions-cell">
+
+  <button class="update-btn" data-id="${item.id}">
+    Mettre à jour
+  </button>
+
+  <button
+    class="sendMailBtn"
+    data-email="${item.email || ""}"
+    data-name="${item.nom_complet || "Client"}"
+    data-service="${item.service || "Service"}"
+  >
+    Envoyer Email
+  </button>
+
+</td>
       </tr>
     `).join("");
 
     attachUpdateEvents();
+    attachEmailEvents();
   }
 
   // =====================================
@@ -220,6 +243,63 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   statusFilter?.addEventListener("change", applyFilters);
   searchInput?.addEventListener("input", applyFilters);
+
+
+  // =====================================
+  // ENVOI EMAIL CLIENT
+  // =====================================
+  function attachEmailEvents() {
+
+    document.querySelectorAll(".sendMailBtn").forEach((btn) => {
+
+      btn.onclick = async () => {
+
+        const email = btn.dataset.email;
+        const name = btn.dataset.name;
+        const service = btn.dataset.service;
+
+        if (!email) {
+          alert("❌ Email client introuvable");
+          return;
+        }
+
+        const originalText = btn.textContent;
+
+        btn.disabled = true;
+        btn.textContent = "Envoi...";
+
+        try {
+
+          await emailjs.send(
+            "service_hskelrg",
+            "template_cfq2vth",
+            {
+              name: name,
+              email: email,
+              service: service,
+              date: new Date().toLocaleDateString("fr-FR")
+            }
+          );
+
+          alert("✅ Email envoyé avec succès");
+
+          btn.textContent = "Email envoyé";
+
+        } catch (err) {
+
+          console.error("❌ EMAIL ERROR :", err);
+
+          alert("❌ Impossible d'envoyer l'email");
+
+          btn.disabled = false;
+          btn.textContent = originalText;
+        }
+
+      };
+
+    });
+
+  }
 
   // =====================================
   // LOGOUT

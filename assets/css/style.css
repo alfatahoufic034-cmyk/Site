@@ -750,6 +750,25 @@ page contact
 .contact-info li strong {
   color: #000;
 }
+admin page contact
+.message {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.message.success {
+  background: #d4edda;
+  color: #155724;
+}
+
+.message.error {
+  background: #f8d7da;
+  color: #721c24;
+}
+
 
 
 
@@ -2517,13 +2536,7 @@ body {
 
 
 
-
-
-
-
-
-
-
+graphique espace client
 .chart-box {
   height: 350px;
   position: relative;
@@ -2544,41 +2557,7 @@ body {
 
 
 
-
-
-
-page contact suit
-.message {
-  margin-top: 15px;
-  padding: 12px;
-  border-radius: 6px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.message.success {
-  background: #d4edda;
-  color: #155724;
-}
-
-.message.error {
-  background: #f8d7da;
-  color: #721c24;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Page de connexion et inscription allignement
 .boutons-container {
   display: flex;
   gap: 30px;
@@ -2611,12 +2590,6 @@ page contact suit
   text-decoration: none;
   display: inline-block;
 }
-
-
-
-
-
-
 
 .boutons-container {
   display: flex;
