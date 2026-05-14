@@ -76,29 +76,3 @@ document.getElementById("registerForm").addEventListener("submit", function(e){
 
   this.reset();
 });
-
-
-
-
-
-
-
-
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  const menuToggle = document.getElementById("menu-toggle");
-  const nav = document.querySelector(".nav ul");
-
-  if (!menuToggle || !nav) {
-    console.error("Menu introuvable");
-    return;
-  }
-
-  menuToggle.addEventListener("click", () => {
-    nav.classList.toggle("active");
-  });
-
-});
