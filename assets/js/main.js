@@ -88,6 +88,15 @@ document.getElementById("registerForm").addEventListener("submit", function(e){
 
 
 
-document.getElementById("menu-toggle").addEventListener("click", () => {
-  document.getElementById("nav").classList.toggle("active");
+document.addEventListener("DOMContentLoaded", () => {
+
+  const menuToggle = document.getElementById("menu-toggle");
+  const nav = document.getElementById("nav");
+
+  if (menuToggle && nav) {
+    menuToggle.addEventListener("click", () => {
+      nav.classList.toggle("active");
+    });
+  }
+
 });
