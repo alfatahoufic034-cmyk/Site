@@ -87,16 +87,29 @@ document.getElementById("registerForm").addEventListener("submit", function(e){
 
 
 
-
 document.addEventListener("DOMContentLoaded", () => {
 
+  // ===== MENU HAMBURGER =====
   const menuToggle = document.getElementById("menu-toggle");
   const nav = document.getElementById("nav");
 
   if (menuToggle && nav) {
+
     menuToggle.addEventListener("click", () => {
       nav.classList.toggle("active");
     });
+
+    // (OPTION PRO) fermer le menu quand on clique un lien
+    const links = nav.querySelectorAll("a");
+
+    links.forEach(link => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("active");
+      });
+    });
+
+  } else {
+    console.warn("Menu hamburger introuvable (menu-toggle ou nav)");
   }
 
 });
