@@ -2777,7 +2777,7 @@ Page de connexion et inscription allignement
   display: none;
   font-size: 32px;
   cursor: pointer;
-  color: yellow;
+  color: #000;
   z-index: 2000;
 }
 
