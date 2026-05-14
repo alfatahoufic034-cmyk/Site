@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vérification Email - ALFA IT SERVICE</title>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body class="check-email-page">
+
+  <div class="container">
+
+    <div class="box">
+
+      <h1>📩 ALFA IT SERVICE</h1>
+
+      <h2>Vérification de votre compte</h2>
+
+      <p>
+        Un email de confirmation a été envoyé à votre adresse email.
+      </p>
+
+      <p>
+        👉 Cliquez sur le lien dans votre boîte mail pour activer votre compte.
+      </p>
+
+      <p style="color:#aaa; font-size:13px;">
+        Si vous ne trouvez pas l'email, vérifiez vos spams.
+      </p>
+
+      <button onclick="resendEmail()">Renvoyer l’email</button>
+
+      <br><br>
+
+      <a href="login.html">Retour à la connexion</a>
+
+    </div>
+
+  </div>
+
+  <script src="../assets/js/supabaseClient.js"></script>
+
+  <script>
+    async function resendEmail() {
+      alert("📩 Email de confirmation renvoyé (Supabase gère automatiquement l'envoi lors de signUp)");
+    }
+  </script>
+
+</body>
+</html>

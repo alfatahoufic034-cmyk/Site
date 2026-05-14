@@ -100,27 +100,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (error) throw error;
 
-      // =====================================
-      // EMAILJS NOTIFICATION ADMIN
-      // =====================================
-      if (typeof emailjs !== "undefined") {
-        await emailjs.send(
-          "service_hskelrg",
-          "template_qshwyx8",
-          {
+      // ===============================
+// EMAILJS NOTIFICATION ADMIN
+// ===============================
+
+if (typeof emailjs !== "undefined") {
+
+    await emailjs.send(
+        "service_hskelrg",
+        "template_qshwyx8",
+        {
             nom_complet: nomComplet,
             email: email,
             telephone: telephone,
             service: service,
             description: description,
             localisation: localisation || "Non renseignée",
+
             type_notification: "Nouvelle demande de service"
-          },
-          "KusED4VK8YahzB6qu"
-        );
-      } else {
-        console.warn("⚠️ EmailJS non chargé");
-      }
+        },
+
+        "KusED4Vk8YahzB8qu"
+    );
+
+} else {
+
+    console.warn("⚠️ EmailJS non chargé");
+
+}
 
       // =====================================
       // SUCCÈS
