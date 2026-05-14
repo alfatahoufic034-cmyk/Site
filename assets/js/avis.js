@@ -1,33 +1,28 @@
 document.addEventListener("DOMContentLoaded", async () => {
 
   // =====================================
-  // 📌 ELEMENTS
+  // ELEMENTS
   // =====================================
   const form = document.getElementById("avisForm");
   const feedback = document.getElementById("feedback");
   const avisList = document.getElementById("avisList");
   const stars = document.querySelectorAll(".star");
+  const messageInput = document.getElementById("messageText");
 
   let selectedNote = 0;
 
-  // sécurité DOM
-  if (!form || !feedback || !avisList) {
+  if (!form || !feedback || !avisList || !messageInput) {
     console.error("❌ Eléments avis introuvables");
     return;
   }
 
   // =====================================
-  // ⭐ GESTION DES ETOILES
+  // ⭐ STARS
   // =====================================
   function updateStars(note) {
     stars.forEach((star) => {
       const value = parseInt(star.dataset.value);
-
-      if (value <= note) {
-        star.classList.add("active");
-      } else {
-        star.classList.remove("active");
-      }
+      star.classList.toggle("active", value <= note);
     });
   }
 
@@ -39,29 +34,18 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   // =====================================
-  // 🔐 SESSION UTILISATEUR
+  // 🔐 USER
   // =====================================
   async function getCurrentUser() {
-    try {
-      const {
-        data: { session },
-        error
-      } = await supabaseClient.auth.getSession();
+    const { data: { session }, error } =
+      await supabaseClient.auth.getSession();
 
-      if (error || !session) {
-        return null;
-      }
-
-      return session.user;
-
-    } catch (err) {
-      console.error("Erreur session :", err.message);
-      return null;
-    }
+    if (error || !session) return null;
+    return session.user;
   }
 
   // =====================================
-  // 📥 CHARGER LES AVIS
+  // 📥 LOAD AVIS
   // =====================================
   async function loadAvis() {
     try {
@@ -73,47 +57,37 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (error) throw error;
 
       if (!data || data.length === 0) {
-        avisList.innerHTML = `
-          <div class="avis-card">
-            <p>Aucun avis pour le moment.</p>
-          </div>
-        `;
+        avisList.innerHTML = `<div class="avis-card"><p>Aucun avis pour le moment.</p></div>`;
         return;
       }
 
       avisList.innerHTML = data.map((avis) => {
-        const starsDisplay = "★".repeat(avis.note) + "☆".repeat(5 - avis.note);
+        const starsDisplay =
+          "★".repeat(avis.note) + "☆".repeat(5 - avis.note);
 
         return `
           <div class="avis-card">
             <h3>${avis.email}</h3>
             <p class="avis-stars">${starsDisplay}</p>
             <p>${avis.message}</p>
-            <small>
-              ${new Date(avis.created_at).toLocaleDateString("fr-FR")}
-            </small>
+            <small>${new Date(avis.created_at).toLocaleDateString("fr-FR")}</small>
           </div>
         `;
       }).join("");
 
     } catch (err) {
-      console.error("❌ Erreur chargement avis :", err.message);
-
-      avisList.innerHTML = `
-        <div class="avis-card">
-          <p>Erreur lors du chargement des avis.</p>
-        </div>
-      `;
+      console.error("❌ LOAD AVIS ERROR :", err.message);
+      avisList.innerHTML = `<div class="avis-card"><p>Erreur chargement avis</p></div>`;
     }
   }
 
   // =====================================
-  // 🚀 ENVOI DU FORMULAIRE
+  // 🚀 SUBMIT
   // =====================================
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const message = document.getElementById("messageText")?.value.trim();
+    const message = messageInput.value.trim();
 
     feedback.textContent = "";
     feedback.style.color = "";
@@ -131,32 +105,53 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    // utilisateur connecté
     const user = await getCurrentUser();
 
     if (!user) {
-      feedback.textContent = "❌ Vous devez être connecté pour laisser un avis.";
+      feedback.textContent = "❌ Vous devez être connecté.";
       feedback.style.color = "red";
       return;
     }
 
-    feedback.textContent = "⏳ Envoi de votre avis...";
+    feedback.textContent = "⏳ Envoi...";
     feedback.style.color = "#FFD700";
 
     try {
+
+      // =====================================
+      // INSERT SUPABASE
+      // =====================================
       const { error } = await supabaseClient
         .from("avis")
-        .insert([
-          {
-            user_id: user.id,
-            email: user.email,
-            note: selectedNote,
-            message: message
-          }
-        ]);
+        .insert([{
+          user_id: user.id,
+          email: user.email,
+          note: selectedNote,
+          message: message
+        }]);
 
       if (error) throw error;
 
+      // =====================================
+      // EMAILJS NOTIFICATION ADMIN
+      // =====================================
+      if (typeof emailjs !== "undefined") {
+        await emailjs.send(
+          "service_hskelrg",
+          "template_qshwyx8",
+          {
+            type: "Nouvel avis client",
+            email: user.email,
+            note: selectedNote,
+            message: message
+          },
+          "KusED4VK8YahzB6qu"
+        );
+      }
+
+      // =====================================
+      // SUCCESS
+      // =====================================
       feedback.textContent = "✅ Avis envoyé avec succès !";
       feedback.style.color = "green";
 
@@ -167,16 +162,17 @@ document.addEventListener("DOMContentLoaded", async () => {
       await loadAvis();
 
     } catch (err) {
-      console.error("❌ Erreur envoi avis :", err.message);
+      console.error("❌ ERROR :", err.message);
 
       feedback.textContent =
-        "❌ Erreur lors de l’envoi : " + err.message;
+        "❌ Erreur : " + (err.message || "inconnue");
+
       feedback.style.color = "red";
     }
   });
 
   // =====================================
-  // 🚀 LANCEMENT
+  // INIT
   // =====================================
   await loadAvis();
 

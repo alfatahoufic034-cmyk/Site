@@ -15,6 +15,16 @@
 
   <!-- Supabase CDN -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- 🔥 EMAILJS CDN (AJOUT IMPORTANT) -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <script>
+    (function () {
+      emailjs.init("KusED4VK8YahzB6qu");
+    })();
+  </script>
+
 </head>
 
 <body class="avis-page">
@@ -57,6 +67,13 @@
         placeholder="Écrivez votre avis ici..."
         required
       ></textarea>
+
+      <!-- ⭐ AJOUT IMPORTANT : email client (optionnel mais utile EmailJS) -->
+      <input
+        type="hidden"
+        id="clientEmail"
+        value=""
+      >
 
       <!-- BOUTON -->
       <button type="submit">
