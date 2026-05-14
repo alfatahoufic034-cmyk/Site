@@ -2742,26 +2742,43 @@ Page de connexion et inscription allignement
 
 
 
-/* ===== bouton hamburger ===== */
-.menu-toggle {
-  display: none;
-  font-size: 30px;
-  cursor: pointer;
-  color: yellow;
-  z-index: 1001;
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: black;
+  position: relative;
 }
 
-/* ===== menu normal PC ===== */
-nav ul {
+/* ===== LOGO ===== */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: yellow;
+}
+
+/* ===== MENU PC ===== */
+.nav ul {
   display: flex;
   gap: 20px;
   list-style: none;
 }
 
-/* ===== liens ===== */
-nav ul li a {
-  text-decoration: none;
+.nav ul li a {
   color: yellow;
+  text-decoration: none;
+}
+
+/* ===== HAMBURGER ===== */
+.menu-toggle {
+  display: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: yellow;
+  z-index: 2000;
 }
 
 /* ===== MOBILE ===== */
@@ -2771,24 +2788,20 @@ nav ul li a {
     display: block;
   }
 
-  nav {
-    position: relative;
-  }
-
-  nav ul {
+  .nav ul {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 60px;
+    top: 70px;
     right: 10px;
     background: black;
+    width: 220px;
     padding: 15px;
-    width: 200px;
     border: 1px solid yellow;
-    z-index: 1000;
+    z-index: 1500;
   }
 
-  nav ul.active {
+  .nav ul.active {
     display: flex;
   }
 }
