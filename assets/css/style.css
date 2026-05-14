@@ -2748,7 +2748,7 @@ Page de connexion et inscription allignement
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  background: black;
+  background: #fff;
   position: relative;
 }
 
@@ -2757,7 +2757,7 @@ Page de connexion et inscription allignement
   display: flex;
   align-items: center;
   gap: 10px;
-  color: yellow;
+  color: #000;
 }
 
 /* ===== MENU PC ===== */
@@ -2768,7 +2768,7 @@ Page de connexion et inscription allignement
 }
 
 .nav ul li a {
-  color: yellow;
+  color: #000;
   text-decoration: none;
 }
 
