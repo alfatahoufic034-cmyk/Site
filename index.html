@@ -16,13 +16,19 @@
 
   <!-- ===== NAVBAR ===== -->
   <header class="navbar">
+    
     <div class="logo">
       <img src="assets/images/logo.png" alt="Logo ALFA IT SERVICE">
       <h1>ALFA IT SERVICE</h1>
     </div>
 
+    <!-- ☰ MENU HAMBURGER (AJOUTÉ) -->
+    <div class="menu-toggle" id="menu-toggle">
+      ☰
+    </div>
+
     <nav>
-      <ul>
+      <ul id="nav">
         <li><a href="#">Accueil</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="demande.html">Demande</a></li>
@@ -34,9 +40,10 @@
     </nav>
 
     <div class="auth-buttons">
-  <a href="auth/login.html" class="connexion">Connexion</a>
-  <a href="auth/register.html" class="inscription">Inscription</a>
-</div>
+      <a href="auth/login.html" class="connexion">Connexion</a>
+      <a href="auth/register.html" class="inscription">Inscription</a>
+    </div>
+
   </header>
 
   <!-- ===== HERO SECTION ===== -->
@@ -64,7 +71,6 @@
 
     <div class="service-grid">
 
-      <!-- SERVICE 1 -->
       <div class="card reveal">
         <img src="assets/images/maintenance.jpg" alt="Maintenance PC">
         <h3>Maintenance PC</h3>
@@ -75,7 +81,6 @@
         </p>
       </div>
 
-      <!-- SERVICE 2 -->
       <div class="card reveal">
         <img src="assets/images/reseau.jpg" alt="Réseaux">
         <h3>Réseaux</h3>
@@ -85,7 +90,6 @@
         </p>
       </div>
 
-      <!-- SERVICE 3 -->
       <div class="card reveal">
         <img src="assets/images/assistance.jpg" alt="Assistance IT">
         <h3>Assistance IT</h3>
@@ -95,7 +99,6 @@
         </p>
       </div>
 
-      <!-- SERVICE 4 -->
       <div class="card reveal">
         <img src="assets/images/dev.jpg" alt="Développement Web">
         <h3>Développement Web</h3>
@@ -114,9 +117,10 @@
     <a href="demande.html" class="btn btn-gold">Faire une demande</a>
   </section>
 
-    <div class="footer-bottom">
-      <p>&copy; 2026 ALFA IT SERVICE. Tous droits réservés.</p>
-    </div>
+  <!-- ===== FOOTER ===== -->
+  <div class="footer-bottom">
+    <p>&copy; 2026 ALFA IT SERVICE. Tous droits réservés.</p>
+  </div>
 
 </body>
 </html>

@@ -76,3 +76,18 @@ document.getElementById("registerForm").addEventListener("submit", function(e){
 
   this.reset();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+document.getElementById("menu-toggle").addEventListener("click", () => {
+  document.getElementById("nav").classList.toggle("active");
+});
