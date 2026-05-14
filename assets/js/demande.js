@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("location")?.value.trim();
 
     // =====================================
-    // VALIDATIONS
+    // VALIDATION
     // =====================================
     if (
       !nomComplet ||
@@ -49,12 +49,10 @@ document.addEventListener("DOMContentLoaded", () => {
       !service ||
       !description
     ) {
-
       messageBox.textContent =
         "❌ Veuillez remplir tous les champs obligatoires.";
 
       messageBox.style.color = "red";
-
       return;
     }
 
@@ -67,17 +65,15 @@ document.addEventListener("DOMContentLoaded", () => {
     } = await supabaseClient.auth.getUser();
 
     if (userError || !user) {
-
       messageBox.textContent =
         "❌ Vous devez être connecté pour envoyer une demande.";
 
       messageBox.style.color = "red";
-
       return;
     }
 
     // =====================================
-    // MESSAGE CHARGEMENT
+    // CHARGEMENT
     // =====================================
     messageBox.textContent =
       "⏳ Envoi de votre demande...";
@@ -87,49 +83,44 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
 
       // =====================================
-      // INSERTION SUPABASE
+      // INSERT SUPABASE
       // =====================================
       const { error } = await supabaseClient
         .from("demandes")
-        .insert([
-          {
-            user_id: user.id,
-            nom_complet: nomComplet,
-            email: email,
-            telephone: telephone,
-            service: service,
-            description: description,
-            localisation: localisation || null,
-            statut: "en_cours"
-          }
-        ]);
-
-      // =====================================
-      // ERREUR INSERTION
-      // =====================================
-      if (error) {
-        throw error;
-      }
-
-      // =====================================
-      // EMAILJS NOTIFICATION ADMIN
-      // =====================================
-      await emailjs.send(
-        "service_hskelrg",
-        "template_qshwyx8",
-        {
+        .insert([{
+          user_id: user.id,
           nom_complet: nomComplet,
           email: email,
           telephone: telephone,
           service: service,
           description: description,
-          localisation:
-            localisation || "Non renseignée",
+          localisation: localisation || null,
+          statut: "en_cours"
+        }]);
 
-          type_notification:
-            "Nouvelle demande de service"
-        }
-      );
+      if (error) throw error;
+
+      // =====================================
+      // EMAILJS NOTIFICATION ADMIN
+      // =====================================
+      if (typeof emailjs !== "undefined") {
+        await emailjs.send(
+          "service_hskelrg",
+          "template_qshwyx8",
+          {
+            nom_complet: nomComplet,
+            email: email,
+            telephone: telephone,
+            service: service,
+            description: description,
+            localisation: localisation || "Non renseignée",
+            type_notification: "Nouvelle demande de service"
+          },
+          "KusED4VK8YahzB6qu"
+        );
+      } else {
+        console.warn("⚠️ EmailJS non chargé");
+      }
 
       // =====================================
       // SUCCÈS
@@ -139,27 +130,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
       messageBox.style.color = "green";
 
-      // Reset formulaire
       form.reset();
 
       // =====================================
-      // REDIRECTION
+      // REDIRECTION PROPRE
       // =====================================
       setTimeout(() => {
-
-        // IMPORTANT :
-        // dashboard client est dans /client/
-        window.location.href =
-          "client/dashboard.html";
-
+        window.location.href = "client/dashboard.html";
       }, 2000);
 
     } catch (err) {
 
-      console.error(
-        "❌ Erreur demande :",
-        err
-      );
+      console.error("❌ Erreur demande :", err);
 
       messageBox.textContent =
         "❌ Erreur lors de l’envoi : " +
