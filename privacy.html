@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Politique de confidentialité | ALFA-IT-SERVICES</title>
+
+  <meta name="description" content="Politique de confidentialité officielle de ALFA-IT-SERVICES.">
+
+  <!-- SEO -->
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="ALFA-IT-SERVICES">
+  <meta name="theme-color" content="#d4af37">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Politique de confidentialité | ALFA-IT-SERVICES">
+  <meta property="og:description" content="Politique de confidentialité officielle de ALFA-IT-SERVICES.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://alfaitservices.com/privacy.html">
+  <meta property="og:image" content="https://alfaitservices.com/assets/images/banner.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Poppins', sans-serif;
+  background:#ffffff;
+  color:#111;
+  line-height:1.8;
+}
+
+a{
+  text-decoration:none;
+}
+
+/* CONTAINER */
+.container{
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* HEADER */
+header{
+  background:#ffffff;
+  border-bottom:2px solid #d4af37;
+  padding:20px 0;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:20px;
+}
+
+.logo{
+  color:#d4af37;
+  font-size:1.5rem;
+  font-weight:700;
+}
+
+.nav-links{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.nav-links a{
+  color:#111;
+  transition:0.3s;
+}
+
+.nav-links a:hover{
+  color:#d4af37;
+}
+
+/* HERO */
+.hero{
+  padding:80px 20px;
+  text-align:center;
+  background:#f7f7f7;
+}
+
+.hero h1{
+  color:#d4af37;
+  font-size:3rem;
+  margin-bottom:20px;
+}
+
+.hero p{
+  max-width:900px;
+  margin:auto;
+  color:#444;
+}
+
+.update-date{
+  margin-top:15px;
+  margin-bottom:20px;
+  color:#666;
+  font-size:0.95rem;
+}
+
+/* CONTENT */
+.content{
+  padding:60px 0;
+}
+
+.card{
+  background:#ffffff;
+  border-left:5px solid #d4af37;
+  padding:30px;
+  margin-bottom:30px;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.card h2{
+  color:#d4af37;
+  margin-bottom:15px;
+  font-size:1.5rem;
+}
+
+.card p{
+  color:#333;
+  margin-bottom:15px;
+}
+
+.card ul{
+  margin-left:20px;
+}
+
+.card ul li{
+  margin-bottom:10px;
+  color:#333;
+}
+
+/* CONTACT BOX */
+.contact-box{
+  background:#f9f9f9;
+  border:1px solid #d4af37;
+  padding:25px;
+  border-radius:12px;
+  margin-top:20px;
+}
+
+/* FOOTER */
+footer{
+  background:#ffffff;
+  border-top:2px solid #d4af37;
+  padding:35px 0;
+  text-align:center;
+  margin-top:40px;
+}
+
+.footer-links{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-bottom:15px;
+}
+
+.footer-links a{
+  color:#111;
+  transition:0.3s;
+}
+
+.footer-links a:hover{
+  color:#d4af37;
+}
+
+footer p{
+  color:#666;
+}
+
+/* BACK TO TOP BUTTON */
+#topBtn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#d4af37;
+  color:#000;
+  border:none;
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  font-size:20px;
+  cursor:pointer;
+  display:none;
+  z-index:999;
+  font-weight:bold;
+  box-shadow:0 0 10px rgba(0,0,0,0.2);
+  transition:0.3s;
+}
+
+#topBtn:hover{
+  transform:scale(1.1);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+  .hero h1{
+    font-size:2rem;
+  }
+
+  .navbar{
+    flex-direction:column;
+  }
+
+}
+
+
+/* ===== ANIMATION PREMIUM SCROLL ===== */
+
+.card{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.8s ease;
+}
+
+/* quand visible */
+.card.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* HERO animation douce */
+.hero h1{
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeHero 1s ease forwards;
+}
+
+.hero p{
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeHero 1s ease forwards;
+  animation-delay:0.2s;
+}
+
+.update-date{
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeHero 1s ease forwards;
+  animation-delay:0.4s;
+}
+
+@keyframes fadeHero{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* hover premium */
+.card{
+  transition:0.4s ease;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 15px 30px rgba(0,0,0,0.08);
+}
+
+/* lien underline animé */
+.nav-links a,
+.footer-links a{
+  position:relative;
+}
+
+.nav-links a::after,
+.footer-links a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0%;
+  height:2px;
+  background:#d4af37;
+  transition:0.3s;
+}
+
+.nav-links a:hover::after,
+.footer-links a:hover::after{
+  width:100%;
+}
+
+/* bouton top premium */
+#topBtn{
+  transition:0.3s ease;
+}
+
+#topBtn:hover{
+  transform:scale(1.2);
+}
+
+</style>
+</head>
+
+<body>
+
+  <header>
+
+    <div class="container navbar">
+
+      <div class="logo">
+        ALFA-IT-SERVICES
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="services.html">Services</a>
+        <a href="actualites.html">Actualités</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+    </div>
+
+  </header>
+
+  <section class="hero">
+
+    <div class="container">
+
+      <h1>Politique de confidentialité</h1>
+
+      <p class="update-date">
+        Dernière mise à jour : 16 Mai 2026
+      </p>
+
+      <p>
+        Chez ALFA-IT-SERVICES, la protection des données personnelles de nos utilisateurs est une priorité. Cette politique explique quelles informations sont collectées, comment elles sont utilisées et les mesures mises en place pour garantir leur sécurité.
+      </p>
+
+    </div>
+
+  </section>
+
+  <section class="content">
+
+    <div class="container">
+
+      <!-- Informations générales -->
+      <div class="card">
+
+        <h2>1. Informations générales</h2>
+
+        <p>
+          ALFA-IT-SERVICES est une plateforme spécialisée dans les services informatiques, le développement web, l'assistance technique et les solutions numériques.
+        </p>
+
+        <p>
+          En utilisant notre site, vous acceptez les pratiques décrites dans cette politique de confidentialité.
+        </p>
+
+      </div>
+
+      <!-- Base légale -->
+      <div class="card">
+
+        <h2>Base légale du traitement</h2>
+
+        <p>
+          Les données personnelles collectées sont traitées uniquement dans le cadre des services proposés par ALFA-IT-SERVICES et avec le consentement des utilisateurs lorsque cela est nécessaire.
+        </p>
+
+        <p>
+          Nous nous engageons à respecter les réglementations applicables relatives à la protection des données personnelles.
+        </p>
+
+      </div>
+
+      <!-- Informations collectées -->
+      <div class="card">
+
+        <h2>2. Informations collectées</h2>
+
+        <p>
+          Nous pouvons collecter certaines informations lorsque vous utilisez nos services.
+        </p>
+
+        <ul>
+          <li>Nom et prénom</li>
+          <li>Adresse email</li>
+          <li>Numéro de téléphone</li>
+          <li>Informations de connexion</li>
+          <li>Demandes de services</li>
+          <li>Messages envoyés via les formulaires</li>
+          <li>Données techniques liées à la navigation</li>
+        </ul>
+
+      </div>
+
+      <!-- Utilisation des données -->
+      <div class="card">
+
+        <h2>3. Utilisation des données</h2>
+
+        <p>
+          Les informations collectées servent à :
+        </p>
+
+        <ul>
+          <li>Fournir nos services</li>
+          <li>Répondre aux demandes utilisateurs</li>
+          <li>Gérer les comptes</li>
+          <li>Améliorer l'expérience utilisateur</li>
+          <li>Assurer la sécurité du site</li>
+          <li>Envoyer des notifications importantes</li>
+        </ul>
+
+      </div>
+
+      <!-- Protection des données -->
+      <div class="card">
+
+        <h2>4. Protection des données</h2>
+
+        <p>
+          ALFA-IT-SERVICES met en œuvre des mesures de sécurité adaptées afin de protéger les données personnelles contre tout accès non autorisé, modification ou divulgation.
+        </p>
+
+        <p>
+          Notre site utilise des connexions sécurisées (HTTPS) afin de protéger les échanges de données entre les utilisateurs et notre plateforme.
+        </p>
+
+      </div>
+
+      <!-- Durée conservation -->
+      <div class="card">
+
+        <h2>Durée de conservation des données</h2>
+
+        <p>
+          Les informations personnelles sont conservées uniquement pendant la durée nécessaire au traitement des demandes utilisateurs, à la gestion des services et au respect des obligations légales.
+        </p>
+
+      </div>
+
+      <!-- Cookies -->
+      <div class="card">
+
+        <h2>5. Cookies</h2>
+
+        <p>
+          Notre site peut utiliser des cookies afin d'améliorer la navigation, analyser le trafic et personnaliser certains contenus.
+        </p>
+
+        <ul>
+          <li>Amélioration de l'expérience utilisateur</li>
+          <li>Analyse statistique du site</li>
+          <li>Mémorisation des préférences</li>
+          <li>Affichage de contenus adaptés</li>
+        </ul>
+
+        <ul>
+          <li>Cookies essentiels au fonctionnement du site</li>
+          <li>Cookies analytiques</li>
+          <li>Cookies de performance</li>
+          <li>Cookies publicitaires</li>
+        </ul>
+
+      </div>
+
+      <!-- Adsense -->
+      <div class="card">
+
+        <h2>6. Publicités Google AdSense</h2>
+
+        <p>
+          Notre plateforme peut afficher des publicités fournies par Google AdSense.
+        </p>
+
+        <p>
+          Google peut utiliser des cookies pour diffuser des annonces adaptées aux utilisateurs selon leurs visites précédentes.
+        </p>
+
+        <p>
+          Des fournisseurs tiers, y compris Google, utilisent des cookies pour diffuser des annonces basées sur les visites précédentes des utilisateurs sur ce site ou d'autres sites.
+        </p>
+
+        <p>
+          Les utilisateurs peuvent désactiver les annonces personnalisées dans les paramètres Google.
+        </p>
+
+      </div>
+
+      <!-- Partage -->
+      <div class="card">
+
+        <h2>7. Partage des informations</h2>
+
+        <p>
+          Nous ne vendons ni ne partageons les informations personnelles des utilisateurs à des tiers, sauf obligation légale ou nécessité technique liée au fonctionnement du site.
+        </p>
+
+      </div>
+
+      <!-- Liens -->
+      <div class="card">
+
+        <h2>8. Liens externes</h2>
+
+        <p>
+          Notre site peut contenir des liens vers des plateformes externes. ALFA-IT-SERVICES n'est pas responsable des politiques de confidentialité appliquées par ces sites.
+        </p>
+
+      </div>
+
+      <!-- Droits -->
+      <div class="card">
+
+        <h2>9. Droits des utilisateurs</h2>
+
+        <p>
+          Les utilisateurs peuvent demander :
+        </p>
+
+        <ul>
+          <li>L'accès à leurs données personnelles</li>
+          <li>La modification des informations</li>
+          <li>La suppression des données</li>
+          <li>La limitation de certains traitements</li>
+        </ul>
+
+      </div>
+
+      <!-- Modifications -->
+      <div class="card">
+
+        <h2>10. Modifications de la politique</h2>
+
+        <p>
+          Cette politique peut être modifiée à tout moment afin de respecter les évolutions du site et les exigences légales.
+        </p>
+
+      </div>
+
+      <!-- Contact -->
+      <div class="card">
+
+        <h2>11. Contact</h2>
+
+        <p>
+          Pour toute question concernant cette politique de confidentialité, vous pouvez nous contacter :
+        </p>
+
+        <div class="contact-box">
+
+          <p><strong>ALFA-IT-SERVICES</strong></p>
+
+          <p>Email : contact@alfaitservices.com</p>
+
+          <p>Téléphone : +228 90 14 53 12</p>
+
+          <p>Localisation : Kara, Togo</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-links">
+
+        <a href="index.html">Accueil</a>
+
+        <a href="services.html">Services</a>
+
+        <a href="actualites.html">Actualités</a>
+
+        <a href="contact.html">Contact</a>
+
+        <a href="privacy.html">Politique de confidentialité</a>
+
+      </div>
+
+      <p>
+        © 2026 ALFA-IT-SERVICES - Tous droits réservés.
+      </p>
+
+    </div>
+
+  </footer>
+
+  <!-- Bouton retour en haut -->
+  <button id="topBtn">↑</button>
+
+  <script>
+
+    const topBtn = document.getElementById("topBtn");
+
+    window.addEventListener("scroll", () => {
+
+      if(window.scrollY > 300){
+        topBtn.style.display = "block";
+      }else{
+        topBtn.style.display = "none";
+      }
+
+    });
+
+    topBtn.addEventListener("click", () => {
+
+      window.scrollTo({
+        top:0,
+        behavior:"smooth"
+      });
+
+    });
+
+  </script>
+
+  <script>
+
+const cards = document.querySelectorAll(".card");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+}, {
+  threshold:0.15
+});
+
+cards.forEach(card => {
+  observer.observe(card);
+});
+
+</script>
+
+</body>
+</html>
