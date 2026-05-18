@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // reset form
       form.reset();
 
-      // redirection login après 2 secondes
+      // redirection login après 2 seconde
       setTimeout(() => {
         window.location.href = "login.html";
       }, 2000);
