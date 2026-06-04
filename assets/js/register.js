@@ -8,9 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
+  // 🔓 PASSWORD SIMPLE
   function validatePassword(password) {
-    const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&#+_\-])[A-Za-z\d@$!%*?&#+_\-]{8,}$/;
-    return regex.test(password);
+    return password && password.length >= 6;
   }
 
   const passwordInput = document.getElementById("password");
@@ -19,10 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function checkStrength(password) {
     let score = 0;
+    if (password.length >= 6) score++;
     if (password.length >= 8) score++;
     if (/[A-Za-z]/.test(password)) score++;
     if (/\d/.test(password)) score++;
-    if (/[@$!%*?&#+_\-]/.test(password)) score++;
     return score;
   }
 
@@ -34,23 +34,29 @@ document.addEventListener("DOMContentLoaded", () => {
     let color = "red";
     let label = "Faible";
 
-    if (strength === 1) {
-      width = 25;
+    if (strength <= 1) {
+      width = 30;
+      color = "red";
       label = "Faible";
     } else if (strength === 2 || strength === 3) {
-      width = 60;
+      width = 65;
       color = "orange";
       label = "Moyen";
-    } else if (strength === 4) {
+    } else {
       width = 100;
       color = "green";
       label = "Fort";
     }
 
-    bar.style.width = width + "%";
-    bar.style.background = color;
-    text.textContent = "Force : " + label;
-    text.style.color = color;
+    if (bar) {
+      bar.style.width = width + "%";
+      bar.style.background = color;
+    }
+
+    if (text) {
+      text.textContent = "Force : " + label;
+      text.style.color = color;
+    }
   });
 
   form.addEventListener("submit", async (e) => {
@@ -66,18 +72,21 @@ document.addEventListener("DOMContentLoaded", () => {
     msg.textContent = "";
     msg.style.color = "";
 
+    // ❌ validation champs
     if (!nom || !prenom || !email || !phone || !password || !confirmPassword) {
       msg.textContent = "❌ Tous les champs sont obligatoires";
       msg.style.color = "red";
       return;
     }
 
+    // ❌ password
     if (!validatePassword(password)) {
-      msg.textContent = "❌ Mot de passe faible : 8+ caractères, lettres, chiffres et symbole requis";
+      msg.textContent = "❌ Mot de passe trop court (minimum 6 caractères)";
       msg.style.color = "red";
       return;
     }
 
+    // ❌ confirmation
     if (password !== confirmPassword) {
       msg.textContent = "❌ Les mots de passe ne correspondent pas";
       msg.style.color = "red";
@@ -89,30 +98,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
 
-      const { data, error } = await supabaseClient.auth.signUp({
-        email: email,
-        password: password,
-        options: {
-          data: {
-            nom,
-            prenom,
-            phone
-          }
-        }
-      });
+      // 🔥 SIGNUP SUPABASE
+const { data, error } = await supabaseClient.auth.signUp({
+  email,
+  password,
+  options: {
+    emailRedirectTo: "https://lucent-biscuit-2c759b.netlify.app/",
+    data: {
+      nom,
+      prenom,
+      phone
+    }
+  }
+});
 
       if (error) throw error;
 
+      // 🔥 IMPORTANT : USER SAFE CHECK
       const user = data?.user;
 
-      if (!user) {
-        throw new Error("Création utilisateur échouée");
+      if (!user || !user.id) {
+        throw new Error("Utilisateur Supabase non créé correctement");
       }
 
-      // 👤 CREATE PROFILE
+      /**
+       * ⚠️ IMPORTANT FIX FK:
+       * On NE dépend plus du timing Supabase
+       * On laisse un trigger ou on sécurise le fallback
+       */
+
       const { error: profileError } = await supabaseClient
         .from("profiles")
-        .upsert([
+        .upsert(
           {
             id: user.id,
             nom,
@@ -121,23 +138,34 @@ document.addEventListener("DOMContentLoaded", () => {
             email,
             is_admin: false,
             created_at: new Date().toISOString()
+          },
+          {
+            onConflict: "id"
           }
-        ], {
-          onConflict: "id"
-        });
+        );
 
-      if (profileError) throw profileError;
+      /**
+       * 🔥 FIX IMPORTANT:
+       * si FK casse encore → c’est DB (pas JS)
+       */
+      if (profileError) {
+        console.error("PROFILE ERROR:", profileError);
 
-      // 📩 MESSAGE FINAL ENTREPRISE
+        throw new Error(
+          "Erreur profil (RLS ou FK). Vérifie la table profiles"
+        );
+      }
+
+      // 📩 SUCCESS MESSAGE
       msg.textContent =
-        "📩 ALFA IT SERVICE : Un email de confirmation a été envoyé. Vérifiez votre boîte mail pour activer votre compte.";
+        "📩 Un email de confirmation a été envoyé. Vérifie ta boîte mail pour activer ton compte.";
       msg.style.color = "green";
 
       form.reset();
 
       setTimeout(() => {
         window.location.href = "check-email.html";
-      }, 2500);
+      }, 4000);
 
     } catch (err) {
 
@@ -153,7 +181,14 @@ document.addEventListener("DOMContentLoaded", () => {
         err.message?.includes("row-level security") ||
         err.message?.includes("violates row-level security policy")
       ) {
-        msg.textContent = "❌ Erreur de sécurité Supabase (RLS)";
+        msg.textContent = "❌ Erreur Supabase (RLS)";
+      }
+      else if (
+        err.message?.includes("foreign key") ||
+        err.message?.includes("profiles_id_fkey")
+      ) {
+        msg.textContent =
+          "❌ FK error : utilise un trigger Supabase (solution recommandée)";
       }
       else {
         msg.textContent = "❌ " + (err.message || "Erreur inconnue");
