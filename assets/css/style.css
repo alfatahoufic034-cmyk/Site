@@ -2851,6 +2851,7 @@ footer{
   align-items: center;
   padding: 12px 20px;
   position: relative;
+  z-index: 1000;
 }
 
 /* Logo */
@@ -2914,46 +2915,40 @@ footer{
   color: black;
 }
 
-/* Hamburger caché sur PC */
+/* ===== HAMBURGER ===== */
+
 .menu-toggle {
   display: none;
   font-size: 32px;
   color: yellow;
   cursor: pointer;
+  z-index: 2000;
 }
 
-/* ================= MOBILE ================= */
+/* ===== MOBILE ===== */
 
 @media (max-width: 768px) {
 
-  .navbar {
-    flex-wrap: wrap;
-  }
-
-  .logo h1 {
-    font-size: 16px;
-  }
-
-  /* Hamburger visible */
   .menu-toggle {
     display: block;
     position: absolute;
-    right: 20px;
-    top: 20px;
-    z-index: 2000;
+    right: 15px;
+    top: 15px;
   }
 
-  /* Cache les boutons connexion */
   .auth-buttons {
     display: none;
   }
 
-  /* Menu mobile */
+  .nav {
+    position: relative;
+  }
+
   .nav ul {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 70px;
+    top: 100%;
     right: 10px;
     width: 250px;
     background: #111;
@@ -2964,7 +2959,7 @@ footer{
   }
 
   .nav ul.active {
-    display: flex;
+    display: flex !important;
   }
 
   .nav ul li {
@@ -2973,6 +2968,5 @@ footer{
 
   .nav ul li a {
     color: white;
-    display: block;
   }
 }
