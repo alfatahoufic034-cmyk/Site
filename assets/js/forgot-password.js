@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         email,
         {
           redirectTo:
-            "https://lucent-biscuit-2c759b.netlify.app//auth/reset-password.html"
+            "https://lucent-biscuit-2c759b.netlify.app/auth/reset-password.html"
         }
       );
 
