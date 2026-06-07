@@ -2970,3 +2970,11 @@ footer{
     color: white;
   }
 }
+
+.nav ul {
+  display: none;
+}
+
+.nav ul.active {
+  display: flex;
+}
