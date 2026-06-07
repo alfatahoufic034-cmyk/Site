@@ -88,15 +88,10 @@ document.getElementById("registerForm").addEventListener("submit", function(e){
 
 
 
-window.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-  const menuToggle = document.querySelector(".menu-toggle");
-  const navMenu = document.querySelector(".nav ul");
-
-  if (!menuToggle || !navMenu) {
-    console.log("Menu introuvable");
-    return;
-  }
+  const menuToggle = document.getElementById("menu-toggle");
+  const navMenu = document.getElementById("nav-menu");
 
   menuToggle.addEventListener("click", () => {
     navMenu.classList.toggle("active");
