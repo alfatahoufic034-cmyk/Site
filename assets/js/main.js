@@ -14,6 +14,18 @@ function revealOnScroll() {
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
 
+
+
+
+
+
+
+
+
+
+
+
+
 // ==========================================
 // NAVBAR MOBILE - START
 // ==========================================
@@ -60,6 +72,16 @@ document.addEventListener('DOMContentLoaded', function() {
 // ==========================================
 // NAVBAR MOBILE - END
 // ==========================================
+
+
+
+
+
+
+
+
+
+
 
 // ===== AUTO REMPLISSAGE SERVICE =====
 const params = new URLSearchParams(window.location.search);
