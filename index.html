@@ -55,7 +55,37 @@ gtag('config', 'G-E2XZT1R3JN');
   <a href="auth/login.html" class="connexion">Connexion</a>
   <a href="auth/register.html" class="inscription">Inscription</a>
 </div>
+
+    <!-- Hamburger Menu Icon (Mobile Only) -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+  <!-- Mobile Menu -->
+  <nav class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <h2>Menu</h2>
+      <button class="close-btn" id="closeBtn">&times;</button>
+    </div>
+    
+    <ul class="mobile-nav-list">
+      <li><a href="#">Accueil</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="demande.html">Demande</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="actualites.html">Actualités</a></li>
+      <li><a href="avis.html">Avis</a></li>
+      <hr>
+      <li><a href="auth/login.html" class="mobile-auth-link">Connexion</a></li>
+      <li><a href="auth/register.html" class="mobile-auth-link">Inscription</a></li>
+    </ul>
+  </nav>
 
   <!-- ===== HERO SECTION ===== -->
   <section class="hero">
