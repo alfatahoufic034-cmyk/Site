@@ -3093,6 +3093,8 @@ footer{
   list-style: none;
   padding: 20px 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .mobile-nav-list li {
