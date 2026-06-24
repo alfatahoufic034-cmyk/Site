@@ -42,6 +42,8 @@ body {
 .logo img {
   width: 45px;
   height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .logo h1 {
@@ -2975,6 +2977,36 @@ footer{
     display: block;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ========================= */
 /* NAVBAR MOBILE - START */
