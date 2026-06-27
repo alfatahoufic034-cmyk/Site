@@ -11,162 +11,454 @@ document.addEventListener("DOMContentLoaded", () => {
   const db = supabaseClient;
 
   // ===============================
+  // QUILL EDITOR
+  // ===============================
+  const quill = new Quill("#editor", {
+    theme: "snow",
+    modules: {
+      toolbar: [
+        [{ header: [1, 2, 3, false] }],
+        ["bold", "italic", "underline"],
+        ["blockquote"],
+        [{ list: "ordered" }, { list: "bullet" }],
+        ["link"],
+        ["clean"]
+      ]
+    }
+  });
+
+  // ===============================
   // ELEMENTS
   // ===============================
   const idInput = document.getElementById("id");
   const titreInput = document.getElementById("titre");
   const categorieInput = document.getElementById("categorie");
-  const contenuInput = document.getElementById("contenu");
-  const saveBtn = document.getElementById("saveBtn");
-  const list = document.getElementById("list");
+
+  const imageInput =
+    document.getElementById("image");
+
+  const previewImage =
+    document.getElementById("previewImage");
+
+  const preview =
+    document.querySelector(".preview");
+
+  const saveBtn =
+    document.getElementById("saveBtn");
+
+  const list =
+    document.getElementById("list");
 
   // ===============================
-  // RESET FORM
+  // RESET
   // ===============================
   function resetForm() {
+
     idInput.value = "";
+
     titreInput.value = "";
+
     categorieInput.value = "";
-    contenuInput.value = "";
-    saveBtn.textContent = "Publier";
+
+    imageInput.value = "";
+
+    quill.root.innerHTML = "";
+
+    preview.style.display = "none";
+
+    saveBtn.textContent =
+      "Publier";
   }
 
   // ===============================
-  // CHARGER ARTICLES
+  // UPLOAD IMAGE
+  // ===============================
+  async function uploadImage() {
+
+    if (!imageInput.files[0]) {
+      return null;
+    }
+
+    const file =
+      imageInput.files[0];
+
+    const fileName =
+      Date.now() +
+      "-" +
+      file.name;
+
+    const {
+      error
+    }
+    =
+    await db.storage
+      .from("actualites")
+      .upload(
+        fileName,
+        file
+      );
+
+    if (error) {
+
+      alert(
+        "Erreur upload image"
+      );
+
+      return null;
+    }
+
+    const {
+      data
+    }
+    =
+    db.storage
+      .from("actualites")
+      .getPublicUrl(
+        fileName
+      );
+
+    return data.publicUrl;
+  }
+
+  // ===============================
+  // LOAD ARTICLES
   // ===============================
   async function loadArticles() {
 
-    const { data, error } = await db
+    const {
+      data,
+      error
+    }
+    =
+    await db
       .from("actualites")
       .select("*")
-      .order("created_at", { ascending: false });
+      .order(
+        "created_at",
+        {
+          ascending:false
+        }
+      );
 
     if (error) {
-      console.error("❌ Erreur chargement :", error.message);
+
+      console.error(
+        error.message
+      );
+
       return;
     }
 
     list.innerHTML = "";
 
     if (!data.length) {
-      list.innerHTML = "<p>Aucun article trouvé</p>";
+
+      list.innerHTML =
+        "<p>Aucun article trouvé</p>";
+
       return;
     }
 
     data.forEach(article => {
 
       list.innerHTML += `
-        <div class="card">
-          <h3>${article.titre}</h3>
-          <p><strong>${article.categorie}</strong></p>
-          <p>${article.contenu}</p>
 
-          <div class="actions">
-            <button class="edit" onclick="editArticle('${article.id}')">Modifier</button>
-            <button class="delete" onclick="deleteArticle('${article.id}')">Supprimer</button>
-          </div>
-        </div>
-      `;
+<div class="card">
+
+${
+article.image_url
+?
+`
+<img
+src="${article.image_url}"
+style="
+width:100%;
+height:240px;
+object-fit:cover;
+border-radius:10px;
+margin-bottom:15px;
+">
+`
+:
+""
+}
+
+<h3>
+${article.titre||""}
+</h3>
+
+<p>
+<strong>
+${article.categorie||""}
+</strong>
+</p>
+
+<div>
+
+${article.contenu||""}
+
+</div>
+
+<div class="actions">
+
+<button
+class="edit"
+onclick="editArticle('${article.id}')">
+
+Modifier
+
+</button>
+
+<button
+class="delete"
+onclick="deleteArticle('${article.id}')">
+
+Supprimer
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
     });
+
   }
 
   // ===============================
-  // SAUVEGARDER (CREATE / UPDATE)
+  // SAVE
   // ===============================
   async function saveArticle() {
 
-    const titre = titreInput.value.trim();
-    const categorie = categorieInput.value.trim();
-    const contenu = contenuInput.value.trim();
+    const titre =
+      titreInput.value.trim();
 
-    if (!titre || !categorie || !contenu) {
-      alert("❌ Tous les champs sont obligatoires");
+    const categorie =
+      categorieInput.value.trim();
+
+    const contenu =
+      quill.root.innerHTML;
+
+    if (
+      !titre ||
+      !categorie ||
+      !contenu
+    ) {
+
+      alert(
+        "Tous les champs sont obligatoires"
+      );
+
       return;
     }
 
-    const data = {
+    let image_url = null;
+
+    if (
+      imageInput.files[0]
+    ) {
+
+      image_url =
+        await uploadImage();
+
+      if (
+        image_url === null
+      ) return;
+
+    }
+
+    const payload = {
+
       titre,
+
       categorie,
+
       contenu
+
     };
+
+    if (
+      image_url
+    ) {
+
+      payload.image_url =
+        image_url;
+
+    }
 
     let error;
 
-    // UPDATE
-    if (idInput.value) {
-      ({ error } = await db
-        .from("actualites")
-        .update(data)
-        .eq("id", idInput.value));
-    }
-    // INSERT
-    else {
-      ({ error } = await db
-        .from("actualites")
-        .insert([data]));
+    if (
+      idInput.value
+    ) {
+
+      ({
+        error
+      }
+      =
+      await db
+        .from(
+          "actualites"
+        )
+        .update(
+          payload
+        )
+        .eq(
+          "id",
+          idInput.value
+        ));
+
     }
 
-    if (error) {
-      console.error("❌ Erreur save :", error.message);
-      alert("Erreur lors de l'enregistrement");
+    else {
+
+      ({
+        error
+      }
+      =
+      await db
+        .from(
+          "actualites"
+        )
+        .insert([
+          payload
+        ]));
+
+    }
+
+    if (
+      error
+    ) {
+
+      console.error(
+        error.message
+      );
+
+      alert(
+        "Erreur enregistrement"
+      );
+
       return;
     }
 
     resetForm();
+
     loadArticles();
+
   }
 
   // ===============================
-  // EDIT ARTICLE
+  // EDIT
   // ===============================
-  window.editArticle = async (id) => {
+  window.editArticle =
+  async (
+    id
+  ) => {
 
-    const { data, error } = await db
-      .from("actualites")
+    const {
+      data
+    }
+    =
+    await db
+      .from(
+        "actualites"
+      )
       .select("*")
-      .eq("id", id)
+      .eq(
+        "id",
+        id
+      )
       .single();
 
-    if (error) {
-      console.error(error.message);
-      return;
+    if (
+      !data
+    ) return;
+
+    idInput.value =
+      data.id;
+
+    titreInput.value =
+      data.titre;
+
+    categorieInput.value =
+      data.categorie;
+
+    quill.root.innerHTML =
+      data.contenu || "";
+
+    if (
+      data.image_url
+    ) {
+
+      previewImage.src =
+        data.image_url;
+
+      preview.style.display =
+        "block";
+
     }
 
-    idInput.value = data.id;
-    titreInput.value = data.titre;
-    categorieInput.value = data.categorie;
-    contenuInput.value = data.contenu;
+    saveBtn.textContent =
+      "Mettre à jour";
 
-    saveBtn.textContent = "Mettre à jour";
   };
 
   // ===============================
-  // DELETE ARTICLE
+  // DELETE
   // ===============================
-  window.deleteArticle = async (id) => {
+  window.deleteArticle =
+  async (
+    id
+  ) => {
 
-    if (!confirm("Supprimer cet article ?")) return;
+    if (
+      !confirm(
+        "Supprimer cet article ?"
+      )
+    )
+      return;
 
-    const { error } = await db
-      .from("actualites")
+    const {
+      error
+    }
+    =
+    await db
+      .from(
+        "actualites"
+      )
       .delete()
-      .eq("id", id);
+      .eq(
+        "id",
+        id
+      );
 
-    if (error) {
-      console.error(error.message);
+    if (
+      error
+    ) {
+
+      alert(
+        error.message
+      );
+
       return;
     }
 
     loadArticles();
+
   };
 
   // ===============================
   // EVENTS
   // ===============================
-  saveBtn.addEventListener("click", saveArticle);
+  saveBtn.addEventListener(
+    "click",
+    saveArticle
+  );
 
   // ===============================
-  // INIT
+  // START
   // ===============================
   loadArticles();
 

@@ -13,99 +13,98 @@ document.addEventListener("DOMContentLoaded", async () => {
     // =====================================
     // 🔐 SESSION
     // =====================================
-    const {
-      data: { session },
-      error
-    } = await supabaseClient.auth.getSession();
+    const { data, error } = await supabaseClient.auth.getSession();
 
-    if (error || !session) {
+    if (error || !data?.session) {
       window.location.href = "../auth/login.html";
       return;
     }
 
+    const session = data.session;
     const userId = session.user.id;
-    console.log("✅ USER ID :", userId);
+
+    console.log("🟢 SESSION OK :", session.user.email);
 
     // =====================================
-    // 🔍 VERIFIER SI FILTRE TODAY
+    // 🛡️ ADMIN DETECTION (ROBUSTE)
+    // =====================================
+    const isAdmin =
+      session.user?.app_metadata?.role === "admin" ||
+      session.user?.user_metadata?.role === "admin";
+
+    console.log("🛡️ IS ADMIN :", isAdmin);
+
+    // =====================================
+    // 🔍 FILTRE TODAY
     // =====================================
     const urlParams = new URLSearchParams(window.location.search);
     const filterToday = urlParams.get("filter") === "today";
 
-    console.log("📌 Filtre Today :", filterToday);
-
     // =====================================
-    // 📥 DEMANDES
+    // 📥 LOAD DEMANDES
     // =====================================
     async function loadDemandes() {
 
-      const { data, error } = await supabaseClient
+      let query = supabaseClient
         .from("demandes")
-        .select(`
-          service,
-          description,
-          location,
-          statut,
-          created_at,
-          localisation
-        `)
-        .eq("user_id", userId)
+        .select("*")
         .order("created_at", { ascending: false });
+
+      // 👉 filtre uniquement USER
+      if (!isAdmin) {
+        query = query.eq("user_id", userId);
+      }
+
+      const { data: demandes, error } = await query;
 
       if (error) {
         console.error("❌ Supabase error :", error.message);
+        demandesTable.innerHTML = `
+          <tr><td colspan="5">Erreur chargement données</td></tr>
+        `;
         return;
       }
 
-      let demandes = data || [];
+      let result = demandes || [];
 
-      console.log("📦 DEMANDES :", demandes);
+      console.log("📦 DEMANDES :", result);
 
       // =====================================
-      // 📅 FILTRE DEMANDES DU JOUR
+      // 📅 FILTRE TODAY
       // =====================================
       if (filterToday) {
         const today = new Date();
 
-        demandes = demandes.filter((item) => {
+        result = result.filter((item) => {
           if (!item.created_at) return false;
 
-          const createdDate = new Date(item.created_at);
+          const d = new Date(item.created_at);
 
           return (
-            createdDate.getDate() === today.getDate() &&
-            createdDate.getMonth() === today.getMonth() &&
-            createdDate.getFullYear() === today.getFullYear()
+            d.getDate() === today.getDate() &&
+            d.getMonth() === today.getMonth() &&
+            d.getFullYear() === today.getFullYear()
           );
         });
-
-        console.log("🔥 Demandes du jour :", demandes);
       }
 
       // =====================================
-      // AUCUNE DEMANDE
+      // ❌ EMPTY STATE
       // =====================================
-      if (!demandes.length) {
+      if (result.length === 0) {
         demandesTable.innerHTML = `
           <tr>
-            <td colspan="5">
-              ${
-                filterToday
-                  ? "Aucune nouvelle demande aujourd’hui"
-                  : "Aucune demande trouvée"
-              }
-            </td>
+            <td colspan="5">Aucune demande trouvée</td>
           </tr>
         `;
         return;
       }
 
       // =====================================
-      // AFFICHAGE TABLEAU
+      // 📊 RENDER TABLE
       // =====================================
-      demandesTable.innerHTML = demandes.map((item) => {
+      demandesTable.innerHTML = result.map((item) => {
 
-        // 🔥 FIX IMPORTANT
         const localisation =
           item.location ||
           item.localisation ||
@@ -116,13 +115,11 @@ document.addEventListener("DOMContentLoaded", async () => {
             <td>${item.service || "-"}</td>
             <td>${item.description || "-"}</td>
             <td>${localisation}</td>
-            <td>
-              ${
-                item.created_at
-                  ? new Date(item.created_at).toLocaleDateString("fr-FR")
-                  : "-"
-              }
-            </td>
+            <td>${
+              item.created_at
+                ? new Date(item.created_at).toLocaleDateString("fr-FR")
+                : "-"
+            }</td>
             <td>${item.statut || "En cours"}</td>
           </tr>
         `;
@@ -136,29 +133,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (logoutBtn) {
       logoutBtn.addEventListener("click", async (e) => {
         e.preventDefault();
-
-        try {
-          await supabaseClient.auth.signOut();
-          window.location.href = "../auth/login.html";
-        } catch (err) {
-          console.error("❌ Logout error :", err.message);
-        }
+        await supabaseClient.auth.signOut();
+        window.location.href = "../auth/login.html";
       });
     }
 
-    // =====================================
     // 🚀 START
-    // =====================================
     await loadDemandes();
 
   } catch (err) {
-    console.error("❌ ERREUR GÉNÉRALE :", err);
+    console.error("❌ ERREUR :", err);v
 
     demandesTable.innerHTML = `
       <tr>
-        <td colspan="5">
-          Erreur système
-        </td>
+        <td colspan="5">Erreur système</td>
       </tr>
     `;
   }

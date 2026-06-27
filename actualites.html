@@ -1,46 +1,46 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Actualités - ALFA IT SERVICES</title>
 
+  <!-- CSS GLOBAL -->
   <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- ICONS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Supabase CDN -->
+  <!-- SUPABASE -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-  <!--  CONFIG SUPABASE (DOIT CRÉER supabaseClient) -->
+  <!-- CONFIG SUPABASE -->
   <script defer src="assets/js/supabaseclient.js"></script>
 
-  <!-- ACTUALITÉS -->
+  <!-- JS ACTUALITÉS -->
   <script defer src="assets/js/actualite.js"></script>
 
-  <script>
-window.dataLayer = window.dataLayer || [];
-
-function gtag(){
-dataLayer.push(arguments);
-}
-
-gtag('js', new Date());
-
-gtag('config', 'G-E2XZT1R3JN');
-</script>
-
-</head>
-
-  <!-- MAIN -->
+  <!-- MAIN JS -->
   <script defer src="assets/js/main.js"></script>
+
+  <!-- GOOGLE ANALYTICS -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E2XZT1R3JN');
+  </script>
+
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
+  <!-- ================= NAVBAR ================= -->
   <header class="navbar">
+
     <div class="logo">
-      <img src="assets/images/logo.png" alt="Logo ALFA IT SERVICE">
+      <img src="assets/images/logo.png" alt="ALFA IT SERVICES">
       <h1>ALFA IT SERVICES</h1>
     </div>
 
@@ -50,30 +50,31 @@ gtag('config', 'G-E2XZT1R3JN');
         <li><a href="services.html">Services</a></li>
         <li><a href="demande.html">Demande</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="actualites.html" class="active">Actualités</a></li>
+        <li><a class="active" href="actualites.html">Actualités</a></li>
         <li><a href="a-propos.html">À propos</a></li>
         <li><a href="avis.html">Avis</a></li>
       </ul>
     </nav>
 
-    <!-- Hamburger Menu Icon (Mobile Only) -->
+    <!-- MENU MOBILE -->
     <div class="hamburger" id="hamburger">
       <span></span>
       <span></span>
       <span></span>
     </div>
+
   </header>
 
-  <!-- Mobile Menu Overlay -->
+  <!-- MOBILE MENU -->
   <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 
-  <!-- Mobile Menu -->
   <nav class="mobile-menu" id="mobileMenu">
+
     <div class="mobile-menu-header">
       <h2>Menu</h2>
       <button class="close-btn" id="closeBtn">&times;</button>
     </div>
-    
+
     <ul class="mobile-nav-list">
       <li><a href="index.html">Accueil</a></li>
       <li><a href="services.html">Services</a></li>
@@ -83,97 +84,85 @@ gtag('config', 'G-E2XZT1R3JN');
       <li><a href="a-propos.html">À propos</a></li>
       <li><a href="avis.html">Avis</a></li>
     </ul>
+
   </nav>
 
-  <!-- HERO -->
+  <!-- ================= HERO ================= -->
   <section class="hero-small">
     <h2>Actualités & Conseils IT</h2>
     <p>Découvrez nos dernières informations et astuces</p>
   </section>
 
-  <!-- ACTUALITÉS -->
-  <section class="news-container" id="newsContainer">
-    <div class="news-card">
-      <div class="news-content">
-        <h3>Chargement des actualités...</h3>
-        <p>Veuillez patienter...</p>
-      </div>
+  <!-- ================= ACTUALITÉS ================= -->
+  <section class="news-section">
+
+    <div class="news-header">
+      <h2>Nos actualités</h2>
+      <p>Conseils, maintenance, réseaux et innovations IT</p>
     </div>
+
+    <div class="news-container" id="newsContainer">
+
+      <div class="news-card">
+        <div class="news-content">
+          <h3>Chargement des actualités...</h3>
+          <p>Veuillez patienter...</p>
+        </div>
+      </div>
+
+    </div>
+
   </section>
 
-  
-  </section>
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
 
-  <!-- FOOTER -->
-  <!-- ===== FOOTER ===== -->
-<footer class="footer">
+    <div class="footer-container">
 
-  <div class="footer-container">
+      <div class="footer-brand">
+        <h3>ALFA IT SERVICES</h3>
+        <p>
+          Solutions informatiques professionnelles, maintenance, réseaux et assistance technique.
+        </p>
+      </div>
 
-    <div class="footer-brand">
-      <h3>ALFA IT SERVICES</h3>
-      <p>
-        Solutions informatiques professionnelles,
-        maintenance, réseaux et assistance technique.
-      </p>
-    </div>
+      <div class="footer-links">
+        <h4>Liens rapides</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="demande.html">Demande</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
 
-    <div class="footer-links">
-      <h4>Liens rapides</h4>
-      <ul>
-        <li><a href="#">Accueil</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="demande.html">Demande</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
 
-    <div class="footer-contact">
-      <h4>Contact</h4>
-
-      <p>
-        📞
-        <a href="tel:+22890145312">+228 90 14 53 12</a>
-      </p>
-
-      <p>
-        📞
-        <a href="tel:+22879402324">+228 79 40 23 24</a>
-      </p>
-
-      <p>
-        ✉️
-        <a href="mailto:contactalfaitservices@gmail.com">
-          contactalfaitservices@gmail.com
-        </a>
-      </p>
-    </div>
-    <div class="footer-social">
-      <h4>Suivez-nous</h4>
-
-      <div class="social-icons">
-
-        <a href="https://wa.me/22890145312" target="_blank">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-
-        <a href="#" target="_blank">
-          <i class="fab fa-tiktok"></i>
-        </a>
-
-        <a href="#" target="_blank">
-          <i class="fab fa-x-twitter"></i>
-        </a>
+        <p>📞 <a href="tel:+22890145312">+228 90 14 53 12</a></p>
+        <p>📞 <a href="tel:+22879402324">+228 79 40 23 24</a></p>
+        <p>✉️ <a href="mailto:contactalfaitservices@gmail.com">contactalfaitservices@gmail.com</a></p>
 
       </div>
+
+      <div class="footer-social">
+        <h4>Suivez-nous</h4>
+
+        <div class="social-icons">
+          <a href="https://wa.me/22890145312"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+        </div>
+
+      </div>
+
     </div>
 
-  </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 ALFA IT SERVICES - Tous droits réservés.</p>
+    </div>
 
-  <div class="footer-bottom">
-    <p>&copy; 2026 ALFA IT SERVICES - Tous droits réservés.</p>
-  </div>
+  </footer>
 
-</footer>
 </body>
 </html>

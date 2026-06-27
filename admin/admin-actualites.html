@@ -1,149 +1,295 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin - Actualités</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Supabase -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<title>Admin - Actualités</title>
 
-  <!-- TON CONFIG SUPABASE -->
-  <script defer src="../assets/js/supabaseclient.js"></script>
+<!-- Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-  <!-- JS ADMIN ACTUALITÉS -->
-  <script defer src="../assets/js/admin-actualites.js"></script>
+<!-- CONFIG -->
+<script defer src="../assets/js/supabaseclient.js"></script>
 
-  <style>
-    body{
-      margin:0;
-      font-family:Poppins, sans-serif;
-      background:#0b0b0b;
-      color:#fff;
-    }
+<!-- QUILL -->
+<link
+href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
+rel="stylesheet">
 
-    .container{
-      max-width:900px;
-      margin:auto;
-      padding:20px;
-    }
+<!-- JS -->
+<script defer src="../assets/js/admin-actualites.js"></script>
 
-    h1{
-      text-align:center;
-      color:#d4af37;
-      margin-bottom:20px;
-    }
+<style>
 
-    /* FORM */
-    .form-box{
-      background:#111;
-      padding:20px;
-      border-radius:12px;
-      border:1px solid #222;
-      margin-bottom:30px;
-    }
+body{
+margin:0;
+font-family:Poppins,sans-serif;
+background:#0b0b0b;
+color:#fff;
+}
 
-    input, textarea{
-      width:100%;
-      padding:12px;
-      margin:8px 0;
-      border-radius:8px;
-      border:none;
-      background:#1a1a1a;
-      color:#fff;
-      outline:none;
-    }
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
 
-    textarea{
-      min-height:150px;
-      resize:none;
-    }
+h1{
+text-align:center;
+color:#d4af37;
+margin-bottom:20px;
+}
 
-    button{
-      background:#d4af37;
-      color:#000;
-      padding:12px 18px;
-      border:none;
-      border-radius:8px;
-      cursor:pointer;
-      font-weight:bold;
-      margin-top:10px;
-    }
+.form-box{
+background:#111;
+padding:20px;
+border-radius:12px;
+border:1px solid #222;
+margin-bottom:30px;
+}
 
-    button:hover{
-      opacity:0.9;
-    }
+input{
+width:100%;
+padding:12px;
+margin:8px 0;
+border-radius:8px;
+border:none;
+background:#1a1a1a;
+color:#fff;
+outline:none;
+box-sizing:border-box;
+}
 
-    /* LIST */
-    .list{
-      display:flex;
-      flex-direction:column;
-      gap:15px;
-    }
+/* NOUVEAU */
+.file-box{
 
-    .card{
-      background:#111;
-      border:1px solid #222;
-      padding:15px;
-      border-radius:10px;
-    }
+margin-top:15px;
 
-    .card h3{
-      margin:0;
-      color:#d4af37;
-    }
+padding:12px;
 
-    .card p{
-      color:#ccc;
-      margin:5px 0;
-    }
+background:#171717;
 
-    .actions{
-      margin-top:10px;
-      display:flex;
-      gap:10px;
-    }
+border-radius:8px;
+}
 
-    .edit{
-      background:#333;
-      color:#fff;
-    }
+.file-box label{
 
-    .delete{
-      background:red;
-      color:#fff;
-    }
+display:block;
 
-  </style>
+margin-bottom:8px;
+
+color:#d4af37;
+
+font-weight:bold;
+}
+
+#image{
+
+background:#222;
+
+padding:10px;
+
+cursor:pointer;
+}
+
+/* aperçu */
+.preview{
+
+margin-top:15px;
+
+display:none;
+}
+
+.preview img{
+
+width:100%;
+
+max-height:280px;
+
+object-fit:cover;
+
+border-radius:12px;
+
+border:2px solid #333;
+}
+
+/* QUILL */
+#editor{
+height:250px;
+background:#fff;
+color:#000;
+border-radius:8px;
+margin-top:10px;
+}
+
+button{
+background:#d4af37;
+color:#000;
+padding:12px 18px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+margin-top:15px;
+}
+
+button:hover{
+opacity:.9;
+}
+
+.list{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.card{
+background:#111;
+border:1px solid #222;
+padding:15px;
+border-radius:10px;
+}
+
+.card h3{
+margin:0;
+color:#d4af37;
+}
+
+.card p{
+color:#ccc;
+margin:5px 0;
+}
+
+.actions{
+margin-top:10px;
+display:flex;
+gap:10px;
+}
+
+.edit{
+background:#333;
+color:#fff;
+}
+
+.delete{
+background:red;
+color:#fff;
+}
+
+</style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-  <h1>📢 Gestion des Actualités</h1>
+<h1>📢 Gestion des Actualités</h1>
 
-  <!-- FORMULAIRE -->
-  <div class="form-box">
+<div class="form-box">
 
-    <input type="hidden" id="id">
+<input type="hidden" id="id">
 
-    <input type="text" id="titre" placeholder="Titre de l'article">
+<input
+type="text"
+id="titre"
+placeholder="Titre de l'article">
 
-    <input type="text" id="categorie" placeholder="Catégorie (ex: sécurité, IT...)">
+<input
+type="text"
+id="categorie"
+placeholder="Catégorie (ex: réseau, sécurité...)">
 
-    <textarea id="contenu" placeholder="Contenu de l'article"></textarea>
+<!-- IMAGE -->
+<div class="file-box">
 
-    <button id="saveBtn">Publier</button>
+<label>
+🖼 Image de l'article
+</label>
 
-  </div>
+<input
+type="file"
+id="image"
+accept="image/*">
 
-  <!-- LISTE -->
-  <div class="list" id="list">
-    <!-- articles ici -->
-  </div>
+<div class="preview">
+
+<img
+id="previewImage"
+src=""
+alt="aperçu">
 
 </div>
+
+</div>
+
+<!-- EDITEUR -->
+<div id="editor"></div>
+
+<button id="saveBtn">
+
+Publier
+
+</button>
+
+</div>
+
+<!-- LISTE -->
+<div
+class="list"
+id="list">
+</div>
+
+</div>
+
+<!-- QUILL -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+
+<!-- APERÇU IMAGE -->
+<script>
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+const input=
+document.getElementById("image");
+
+const preview=
+document.querySelector(".preview");
+
+const img=
+document.getElementById("previewImage");
+
+if(input){
+
+input.addEventListener(
+"change",
+()=>{
+
+const file=
+input.files[0];
+
+if(!file){
+
+preview.style.display="none";
+
+return;
+
+}
+
+img.src=
+URL.createObjectURL(file);
+
+preview.style.display=
+"block";
+
+});
+
+}
+
+});
+
+</script>
 
 </body>
 </html>
