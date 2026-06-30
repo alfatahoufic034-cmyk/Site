@@ -154,3 +154,90 @@ if (document.getElementById("registerForm")) {
   });
 }
 
+
+
+
+
+
+
+
+
+
+
+/* ===========================
+   IMAGE SERVICES POPUP
+=========================== */
+
+const images =
+document.querySelectorAll(".service-block img");
+
+const modal =
+document.getElementById("imageModal");
+
+const popup =
+document.getElementById("popupImage");
+
+const closeBtn =
+document.querySelector(".close-image");
+
+images.forEach(img=>{
+
+img.addEventListener("click",()=>{
+
+popup.src =
+img.src;
+
+modal.classList.add("show");
+
+document.body.classList.add(
+"modal-open"
+);
+
+});
+
+});
+
+function closeModal(){
+
+modal.classList.remove(
+"show"
+);
+
+document.body.classList.remove(
+"modal-open"
+);
+
+}
+
+closeBtn.addEventListener(
+"click",
+closeModal
+);
+
+modal.addEventListener(
+"click",
+(e)=>{
+
+if(
+e.target===modal
+){
+
+closeModal();
+
+}
+
+});
+
+document.addEventListener(
+"keydown",
+(e)=>{
+
+if(
+e.key==="Escape"
+){
+
+closeModal();
+
+}
+
+});

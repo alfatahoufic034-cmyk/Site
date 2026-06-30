@@ -3,23 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Contact - ALFA IT SERVICE</title>
 
   <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- SUPABASE -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/js/supabaseClient.js"></script>
+  <script src="assets/js/supabaseClient.js"></script>
 
-<script>
-window.dataLayer = window.dataLayer || [];
+  <!-- CONTACT JS -->
+  <script defer src="assets/js/contact.js"></script>
 
-function gtag(){
-dataLayer.push(arguments);
-}
+  <!-- GOOGLE ANALYTICS -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E2XZT1R3JN"></script>
 
-gtag('js', new Date());
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-gtag('config', 'G-E2XZT1R3JN');
-</script>
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-E2XZT1R3JN');
+  </script>
+
+</head>
 
 </head>
 <script defer src="assets/js/contact.js"></script>
