@@ -230,124 +230,42 @@ Supprimer
   // ===============================
   // SAVE
   // ===============================
-  async function saveArticle() {
+ if (
+  error
+) {
 
-    const titre =
-      titreInput.value.trim();
+  console.error(
+    error.message
+  );
 
-    const categorie =
-      categorieInput.value.trim();
+  alert(
+    "❌ Erreur lors de l'enregistrement"
+  );
 
-    const contenu =
-      quill.root.innerHTML;
+  return;
+}
 
-    if (
-      !titre ||
-      !categorie ||
-      !contenu
-    ) {
+if (
+  idInput.value
+) {
 
-      alert(
-        "Tous les champs sont obligatoires"
-      );
+  alert(
+    "✅ Article modifié avec succès"
+  );
 
-      return;
-    }
+}
 
-    let image_url = null;
+else {
 
-    if (
-      imageInput.files[0]
-    ) {
+  alert(
+    "✅ Article publié avec succès"
+  );
 
-      image_url =
-        await uploadImage();
+}
 
-      if (
-        image_url === null
-      ) return;
+resetForm();
 
-    }
-
-    const payload = {
-
-      titre,
-
-      categorie,
-
-      contenu
-
-    };
-
-    if (
-      image_url
-    ) {
-
-      payload.image_url =
-        image_url;
-
-    }
-
-    let error;
-
-    if (
-      idInput.value
-    ) {
-
-      ({
-        error
-      }
-      =
-      await db
-        .from(
-          "actualites"
-        )
-        .update(
-          payload
-        )
-        .eq(
-          "id",
-          idInput.value
-        ));
-
-    }
-
-    else {
-
-      ({
-        error
-      }
-      =
-      await db
-        .from(
-          "actualites"
-        )
-        .insert([
-          payload
-        ]));
-
-    }
-
-    if (
-      error
-    ) {
-
-      console.error(
-        error.message
-      );
-
-      alert(
-        "Erreur enregistrement"
-      );
-
-      return;
-    }
-
-    resetForm();
-
-    loadArticles();
-
-  }
+loadArticles();
 
   // ===============================
   // EDIT
@@ -409,45 +327,50 @@ Supprimer
   // DELETE
   // ===============================
   window.deleteArticle =
-  async (
-    id
-  ) => {
+async (
+id
+) => {
 
-    if (
-      !confirm(
-        "Supprimer cet article ?"
-      )
-    )
-      return;
+if (
+!confirm(
+"⚠️ Voulez-vous vraiment supprimer cet article ?"
+)
+)
+return;
 
-    const {
-      error
-    }
-    =
-    await db
-      .from(
-        "actualites"
-      )
-      .delete()
-      .eq(
-        "id",
-        id
-      );
+const {
+error
+}
+=
+await db
+.from(
+"actualites"
+)
+.delete()
+.eq(
+"id",
+id
+);
 
-    if (
-      error
-    ) {
+if (
+error
+) {
 
-      alert(
-        error.message
-      );
+alert(
+"❌ Erreur lors de la suppression"
+);
 
-      return;
-    }
+return;
 
-    loadArticles();
+}
 
-  };
+alert(
+"✅ Article supprimé avec succès"
+);
+
+loadArticles();
+
+};
 
   // ===============================
   // EVENTS

@@ -1136,18 +1136,7 @@ section {
   font-size: 15px;
 }
 
-/* COULEUR ACCENT PAR CARTE */
-.mission {
-  border-top: 4px solid #d4af37;
-}
 
-.vision {
-  border-top: 4px solid #111;
-}
-
-.values {
-  border-top: 4px solid #0d6efd;
-}
 
 /* ANIMATION LÉGÈRE */
 .value-card::before {
@@ -3282,6 +3271,10 @@ footer{
 
 
 
+
+
+
+
 /* ==========================
 ACTUALITES
 ========================== */
@@ -3410,6 +3403,10 @@ line-height:1.9;
 }
 
 }
+
+
+
+
 
 
 
@@ -3579,8 +3576,29 @@ line-height:1.9;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ===========================
-   IMAGE POPUP SERVICE
+   coter qui gere les clic sur les images dans la page service (affichage)
 =========================== */
 
 .service-block img{
