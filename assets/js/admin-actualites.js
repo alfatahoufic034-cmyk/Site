@@ -34,90 +34,112 @@ document.addEventListener("DOMContentLoaded", () => {
   const titreInput = document.getElementById("titre");
   const categorieInput = document.getElementById("categorie");
 
-  const imageInput =
-    document.getElementById("image");
+  const imageInput = document.getElementById("image");
+  const previewImage = document.getElementById("previewImage");
+  const preview = document.querySelector(".preview");
 
-  const previewImage =
-    document.getElementById("previewImage");
-
-  const preview =
-    document.querySelector(".preview");
-
-  const saveBtn =
-    document.getElementById("saveBtn");
-
-  const list =
-    document.getElementById("list");
+  const saveBtn = document.getElementById("saveBtn");
+  const list = document.getElementById("list");
 
   // ===============================
   // RESET
   // ===============================
   function resetForm() {
-
     idInput.value = "";
-
     titreInput.value = "";
-
     categorieInput.value = "";
-
     imageInput.value = "";
-
     quill.root.innerHTML = "";
-
     preview.style.display = "none";
-
-    saveBtn.textContent =
-      "Publier";
+    saveBtn.textContent = "Publier";
   }
 
   // ===============================
   // UPLOAD IMAGE
   // ===============================
   async function uploadImage() {
+    if (!imageInput.files[0]) return null;
 
-    if (!imageInput.files[0]) {
-      return null;
-    }
+    const file = imageInput.files[0];
+    const fileName = Date.now() + "-" + file.name;
 
-    const file =
-      imageInput.files[0];
-
-    const fileName =
-      Date.now() +
-      "-" +
-      file.name;
-
-    const {
-      error
-    }
-    =
-    await db.storage
+    const { error } = await db.storage
       .from("actualites")
-      .upload(
-        fileName,
-        file
-      );
+      .upload(fileName, file);
 
     if (error) {
-
-      alert(
-        "Erreur upload image"
-      );
-
+      alert("Erreur upload image");
       return null;
     }
 
-    const {
-      data
-    }
-    =
-    db.storage
+    const { data } = db.storage
       .from("actualites")
-      .getPublicUrl(
-        fileName
-      );
+      .getPublicUrl(fileName);
 
     return data.publicUrl;
+  }
+
+  // ===============================
+  // SAVE ARTICLE (CORRIGÉ + COMPLET)
+  // ===============================
+  async function saveArticle() {
+
+    const titre = titreInput.value.trim();
+    const categorie = categorieInput.value.trim();
+    const contenu = quill.root.innerHTML;
+
+    if (!titre || !categorie || !contenu) {
+      alert("❌ Tous les champs sont obligatoires");
+      return;
+    }
+
+    const image_url = await uploadImage();
+
+    // ===================== UPDATE =====================
+    if (idInput.value) {
+
+      const { error } = await db
+        .from("actualites")
+        .update({
+          titre,
+          categorie,
+          contenu,
+          image_url
+        })
+        .eq("id", idInput.value);
+
+      if (error) {
+        console.error(error.message);
+        alert("❌ Erreur lors de la modification");
+        return;
+      }
+
+      alert("✅ Article modifié avec succès");
+    }
+
+    // ===================== INSERT =====================
+    else {
+
+      const { error } = await db
+        .from("actualites")
+        .insert([{
+          titre,
+          categorie,
+          contenu,
+          image_url
+        }]);
+
+      if (error) {
+        console.error(error.message);
+        alert("❌ Erreur lors de l'enregistrement");
+        return;
+      }
+
+      alert("✅ Article publié avec succès");
+    }
+
+    resetForm();
+    loadArticles();
   }
 
   // ===============================
@@ -125,260 +147,109 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===============================
   async function loadArticles() {
 
-    const {
-      data,
-      error
-    }
-    =
-    await db
+    const { data, error } = await db
       .from("actualites")
       .select("*")
-      .order(
-        "created_at",
-        {
-          ascending:false
-        }
-      );
+      .order("created_at", { ascending: false });
 
     if (error) {
-
-      console.error(
-        error.message
-      );
-
+      console.error(error.message);
       return;
     }
 
     list.innerHTML = "";
 
     if (!data.length) {
-
-      list.innerHTML =
-        "<p>Aucun article trouvé</p>";
-
+      list.innerHTML = "<p>Aucun article trouvé</p>";
       return;
     }
 
     data.forEach(article => {
 
       list.innerHTML += `
+        <div class="card">
 
-<div class="card">
+          ${article.image_url ? `
+            <img src="${article.image_url}"
+              style="width:100%;height:240px;object-fit:cover;border-radius:10px;margin-bottom:15px;">
+          ` : ""}
 
-${
-article.image_url
-?
-`
-<img
-src="${article.image_url}"
-style="
-width:100%;
-height:240px;
-object-fit:cover;
-border-radius:10px;
-margin-bottom:15px;
-">
-`
-:
-""
-}
+          <h3>${article.titre || ""}</h3>
 
-<h3>
-${article.titre||""}
-</h3>
+          <p><strong>${article.categorie || ""}</strong></p>
 
-<p>
-<strong>
-${article.categorie||""}
-</strong>
-</p>
+          <div>${article.contenu || ""}</div>
 
-<div>
+          <div class="actions">
 
-${article.contenu||""}
+            <button class="edit"
+              onclick="editArticle('${article.id}')">
+              Modifier
+            </button>
 
-</div>
+            <button class="delete"
+              onclick="deleteArticle('${article.id}')">
+              Supprimer
+            </button>
 
-<div class="actions">
+          </div>
 
-<button
-class="edit"
-onclick="editArticle('${article.id}')">
-
-Modifier
-
-</button>
-
-<button
-class="delete"
-onclick="deleteArticle('${article.id}')">
-
-Supprimer
-
-</button>
-
-</div>
-
-</div>
-
-`;
-
+        </div>
+      `;
     });
-
   }
-
-  // ===============================
-  // SAVE
-  // ===============================
- if (
-  error
-) {
-
-  console.error(
-    error.message
-  );
-
-  alert(
-    "❌ Erreur lors de l'enregistrement"
-  );
-
-  return;
-}
-
-if (
-  idInput.value
-) {
-
-  alert(
-    "✅ Article modifié avec succès"
-  );
-
-}
-
-else {
-
-  alert(
-    "✅ Article publié avec succès"
-  );
-
-}
-
-resetForm();
-
-loadArticles();
 
   // ===============================
   // EDIT
   // ===============================
-  window.editArticle =
-  async (
-    id
-  ) => {
+  window.editArticle = async (id) => {
 
-    const {
-      data
-    }
-    =
-    await db
-      .from(
-        "actualites"
-      )
+    const { data } = await db
+      .from("actualites")
       .select("*")
-      .eq(
-        "id",
-        id
-      )
+      .eq("id", id)
       .single();
 
-    if (
-      !data
-    ) return;
+    if (!data) return;
 
-    idInput.value =
-      data.id;
+    idInput.value = data.id;
+    titreInput.value = data.titre;
+    categorieInput.value = data.categorie;
+    quill.root.innerHTML = data.contenu || "";
 
-    titreInput.value =
-      data.titre;
-
-    categorieInput.value =
-      data.categorie;
-
-    quill.root.innerHTML =
-      data.contenu || "";
-
-    if (
-      data.image_url
-    ) {
-
-      previewImage.src =
-        data.image_url;
-
-      preview.style.display =
-        "block";
-
+    if (data.image_url) {
+      previewImage.src = data.image_url;
+      preview.style.display = "block";
     }
 
-    saveBtn.textContent =
-      "Mettre à jour";
-
+    saveBtn.textContent = "Mettre à jour";
   };
 
   // ===============================
   // DELETE
   // ===============================
-  window.deleteArticle =
-async (
-id
-) => {
+  window.deleteArticle = async (id) => {
 
-if (
-!confirm(
-"⚠️ Voulez-vous vraiment supprimer cet article ?"
-)
-)
-return;
+    if (!confirm("⚠️ Voulez-vous vraiment supprimer cet article ?")) return;
 
-const {
-error
-}
-=
-await db
-.from(
-"actualites"
-)
-.delete()
-.eq(
-"id",
-id
-);
+    const { error } = await db
+      .from("actualites")
+      .delete()
+      .eq("id", id);
 
-if (
-error
-) {
+    if (error) {
+      alert("❌ Erreur lors de la suppression");
+      return;
+    }
 
-alert(
-"❌ Erreur lors de la suppression"
-);
-
-return;
-
-}
-
-alert(
-"✅ Article supprimé avec succès"
-);
-
-loadArticles();
-
-};
+    alert("✅ Article supprimé avec succès");
+    loadArticles();
+  };
 
   // ===============================
   // EVENTS
   // ===============================
-  saveBtn.addEventListener(
-    "click",
-    saveArticle
-  );
+  saveBtn.addEventListener("click", saveArticle);
 
   // ===============================
   // START
