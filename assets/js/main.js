@@ -38,6 +38,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const closeBtn = document.getElementById('closeBtn');
   const navLinks = document.querySelectorAll('.mobile-nav-list a');
 
+  // Protection : si la structure de la navbar n'existe pas sur la page,
+  // on sort proprement pour éviter les erreurs JS qui bloquent d'autres scripts.
+  if (!hamburger || !mobileMenu || !mobileMenuOverlay || !closeBtn) {
+    return;
+  }
+
   // Fonction pour ouvrir le menu
   function openMenu() {
     hamburger.classList.add('active');
@@ -63,10 +69,12 @@ document.addEventListener('DOMContentLoaded', function() {
   // Clic sur l'overlay pour fermer le menu
   mobileMenuOverlay.addEventListener('click', closeMenu);
 
-  // Clic sur un lien pour fermer le menu
-  navLinks.forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
+  // Clic sur un lien pour fermer le menu (si présents)
+  if (navLinks && navLinks.length) {
+    navLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+  }
 });
 
 // ==========================================
