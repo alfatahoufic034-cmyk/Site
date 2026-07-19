@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sécurité - Administration | ALFA IT SERVICES</title>
+
+    <link rel="stylesheet" href="../assets/css/admin-securite.css">
+
+    <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+
+<!-- ==========================
+        SIDEBAR ADMIN
+=========================== -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+        <h2>
+            <span>ALFA</span> IT
+        </h2>
+        <small>Administration</small>
+    </div>
+
+
+    <nav>
+
+        <a href="dashboard.html">
+            <i class="fa-solid fa-chart-line"></i>
+            Dashboard
+        </a>
+
+
+        <a href="clients.html">
+            <i class="fa-solid fa-users"></i>
+            Utilisateurs
+        </a>
+
+
+        <a href="demandes.html">
+            <i class="fa-solid fa-file-circle-check"></i>
+            Demandes
+        </a>
+        
+        <a href="admin-contact.html">
+           <i class="fa-solid fa-envelope"></i>
+           Contacts
+        </a>
+
+        <a href="avis.html">
+            <i class="fa-solid fa-star"></i>
+            Avis
+        </a>
+
+
+        <a href="historique.html">
+           <i class="fa-solid fa-clock-rotate-left"></i>
+        Historique
+        </a>
+
+
+        <a href="admin-actualites.html">
+            <i class="fa-solid fa-newspaper"></i>
+            Actualités
+        </a>
+
+
+        <a href="admin-securite.html" class="active">
+            <i class="fa-solid fa-shield-halved"></i>
+            Sécurité
+        </a>
+
+
+        <a href="../index.html">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Déconnexion
+        </a>
+
+
+    </nav>
+
+</aside>
+
+
+
+<!-- ==========================
+        CONTENU PRINCIPAL
+=========================== -->
+
+<main class="main">
+
+
+<header class="top-header">
+
+    <div>
+        <h1>
+            Centre de sécurité
+        </h1>
+
+        <p>
+            Surveillance et protection du système ALFA IT SERVICES
+        </p>
+    </div>
+
+
+    <div class="security-status">
+
+        <span class="status-dot"></span>
+
+        Système sécurisé
+
+    </div>
+
+
+</header>
+
+
+
+<!-- ==========================
+        STATISTIQUES
+=========================== -->
+
+
+<section class="stats-container">
+
+
+<div class="stat-card">
+
+    <div class="icon">
+        <i class="fa-solid fa-right-to-bracket"></i>
+    </div>
+
+    <div>
+        <h3 id="totalConnections">
+            0
+        </h3>
+
+        <p>
+            Connexions
+        </p>
+    </div>
+
+</div>
+
+
+
+
+<div class="stat-card">
+
+    <div class="icon danger">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+    </div>
+
+    <div>
+        <h3 id="totalAlerts">
+            0
+        </h3>
+
+        <p>
+            Alertes sécurité
+        </p>
+    </div>
+
+</div>
+
+
+
+
+<div class="stat-card">
+
+    <div class="icon warning">
+        <i class="fa-solid fa-ban"></i>
+    </div>
+
+
+    <div>
+
+        <h3 id="blockedIps">
+            0
+        </h3>
+
+        <p>
+            IP bloquées
+        </p>
+
+    </div>
+
+
+</div>
+
+
+
+
+<div class="stat-card">
+
+
+    <div class="icon danger">
+
+        <i class="fa-solid fa-bug"></i>
+
+    </div>
+
+
+    <div>
+
+        <h3 id="serverErrors">
+            0
+        </h3>
+
+
+        <p>
+            Erreurs serveur
+        </p>
+
+
+    </div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+<!-- ==========================
+        GRAPHIQUE
+=========================== -->
+
+
+<section class="panel">
+
+
+<h2>
+<i class="fa-solid fa-chart-area"></i>
+Activité système
+</h2>
+
+
+<canvas id="securityChart"></canvas>
+
+
+</section>
+
+
+
+
+
+<!-- ==========================
+        ALERTES
+=========================== -->
+
+
+<section class="panel">
+
+
+<div class="panel-header">
+
+<h2>
+<i class="fa-solid fa-bell"></i>
+Alertes sécurité
+</h2>
+
+
+<button>
+Exporter
+</button>
+
+
+</div>
+
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>Niveau</th>
+<th>Type</th>
+<th>Description</th>
+<th>Date</th>
+<th>Action</th>
+
+
+</tr>
+
+</thead>
+
+
+<tbody id="alertsTable">
+
+
+<tr>
+
+<td colspan="5">
+Aucune alerte détectée
+</td>
+
+
+</tr>
+
+
+</tbody>
+
+
+</table>
+
+
+</section>
+
+
+
+
+
+
+<!-- ==========================
+        IP BLOQUEES
+=========================== -->
+
+
+<section class="panel">
+
+
+<h2>
+<i class="fa-solid fa-network-wired"></i>
+IP bloquées
+</h2>
+
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>Adresse IP</th>
+<th>Motif</th>
+<th>Date</th>
+<th>Action</th>
+
+
+</tr>
+
+</thead>
+
+
+<tbody id="blockedTable">
+
+
+<tr>
+
+<td colspan="4">
+Aucune IP bloquée
+</td>
+
+
+</tr>
+
+
+</tbody>
+
+
+</table>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- ==========================
+        LOGS ADMIN
+=========================== -->
+
+
+<section class="panel">
+
+
+<h2>
+<i class="fa-solid fa-user-shield"></i>
+Journal des administrateurs
+</h2>
+
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>Utilisateur</th>
+<th>Action</th>
+<th>Date</th>
+
+
+</tr>
+
+
+</thead>
+
+
+<tbody id="adminLogs">
+
+
+<tr>
+
+<td colspan="3">
+Aucune activité
+</td>
+
+
+</tr>
+
+
+</tbody>
+
+
+</table>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ==========================
+        ERREURS SYSTEME
+=========================== -->
+
+
+<section class="panel">
+
+
+<h2>
+<i class="fa-solid fa-server"></i>
+Erreurs système
+</h2>
+
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>Code</th>
+<th>Erreur</th>
+<th>Date</th>
+
+
+</tr>
+
+
+</thead>
+
+
+<tbody id="errorsTable">
+
+
+<tr>
+
+<td colspan="3">
+Aucune erreur
+</td>
+
+
+</tr>
+
+
+</tbody>
+
+
+</table>
+
+
+
+</section>
+
+
+
+
+
+</main>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../assets/js/supabaseClient.js"></script>
+
+<script src="../assets/js/admin-securite.js"></script>
+
+
+</body>
+
+</html>

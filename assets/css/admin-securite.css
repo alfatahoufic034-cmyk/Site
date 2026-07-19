@@ -1,0 +1,666 @@
+/* ==================================================
+   ALFA IT SERVICES
+   ADMIN SECURITY DASHBOARD
+   Style : Blanc / Noir / Or
+================================================== */
+
+
+/* ==========================
+   RESET
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+
+body {
+
+    background: #ffffff;
+    color: #111111;
+    display: flex;
+    min-height: 100vh;
+
+}
+
+
+/* ==========================
+   SIDEBAR
+========================== */
+
+
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: white;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.sidebar nav {
+    padding-bottom: 30px;
+}
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+
+.logo {
+
+    text-align: center;
+    margin-bottom: 40px;
+
+}
+
+
+.logo h2 {
+
+    font-size: 28px;
+    color: #111;
+
+}
+
+
+.logo h2 span {
+
+    color: #d4af37;
+
+}
+
+
+.logo small {
+
+    color: #777;
+    font-size: 13px;
+
+}
+
+
+
+/* MENU */
+
+
+.sidebar nav a {
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 14px 15px;
+
+    text-decoration: none;
+
+    color: #111;
+
+    margin-bottom: 10px;
+
+    border-radius: 10px;
+
+    transition: 0.3s;
+
+}
+
+
+.sidebar nav a i {
+
+    width: 20px;
+    color: #d4af37;
+
+}
+
+
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+
+
+    background: #111111;
+
+    color: #ffffff;
+
+
+}
+
+
+.sidebar nav a.active i,
+.sidebar nav a:hover i {
+
+    color: #d4af37;
+
+}
+
+
+
+
+
+/* ==========================
+   MAIN
+========================== */
+
+
+.main {
+
+    margin-left: 260px;
+
+    width: calc(100% - 260px);
+
+    padding: 30px;
+
+}
+
+
+
+
+/* ==========================
+ HEADER
+========================== */
+
+
+.top-header {
+
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 35px;
+
+
+}
+
+
+
+.top-header h1 {
+
+    font-size: 32px;
+
+    color: #111;
+
+}
+
+
+
+.top-header p {
+
+    margin-top: 8px;
+
+    color: #666;
+
+}
+
+
+
+
+.security-status {
+
+
+    background: #f8f8f8;
+
+    padding: 12px 20px;
+
+    border-radius: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-weight: 600;
+
+
+}
+
+
+
+.status-dot {
+
+
+    width: 12px;
+
+    height: 12px;
+
+    background: #d4af37;
+
+    border-radius: 50%;
+
+
+}
+
+
+
+
+
+/* ==========================
+ STATISTIQUES
+========================== */
+
+
+.stats-container {
+
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 25px;
+
+    margin-bottom: 30px;
+
+
+}
+
+
+
+
+.stat-card {
+
+
+    background: #ffffff;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 15px;
+
+    padding: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+
+
+    transition: 0.3s;
+
+
+}
+
+
+
+.stat-card:hover {
+
+
+    transform: translateY(-5px);
+
+    border-color: #d4af37;
+
+
+}
+
+
+
+.stat-card h3 {
+
+    font-size: 30px;
+
+    color: #111;
+
+}
+
+
+
+.stat-card p {
+
+    color: #777;
+
+}
+
+
+
+
+
+.icon {
+
+
+    width: 55px;
+
+    height: 55px;
+
+    border-radius: 50%;
+
+    background: #111;
+
+    color: #d4af37;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 22px;
+
+
+}
+
+
+
+.icon.danger {
+
+
+    background: #111;
+
+    color: #d4af37;
+
+
+}
+
+
+.icon.warning {
+
+
+    background: #111;
+
+    color: #d4af37;
+
+
+}
+
+
+
+
+
+/* ==========================
+ PANELS
+========================== */
+
+
+.panel {
+
+
+    background: #ffffff;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 15px;
+
+    padding: 25px;
+
+    margin-bottom: 30px;
+
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+
+
+}
+
+
+
+.panel h2 {
+
+
+    margin-bottom: 20px;
+
+    font-size: 22px;
+
+    color: #111;
+
+
+}
+
+
+
+.panel h2 i {
+
+    color: #d4af37;
+
+    margin-right: 10px;
+
+}
+
+
+
+
+
+/* HEADER PANEL */
+
+
+.panel-header {
+
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+
+}
+
+
+
+.panel-header button {
+
+
+    background: #111;
+
+    color: #ffffff;
+
+    border: none;
+
+    padding: 10px 20px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+
+}
+
+
+
+.panel-header button:hover {
+
+
+    background: #d4af37;
+
+    color: #111;
+
+
+}
+
+
+
+
+
+/* ==========================
+ TABLES
+========================== */
+
+
+table {
+
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+
+}
+
+
+
+thead {
+
+
+    background: #111;
+
+
+}
+
+
+
+thead th {
+
+
+    color: #ffffff;
+
+    padding: 15px;
+
+    text-align: left;
+
+}
+
+
+
+tbody td {
+
+
+    padding: 15px;
+
+    border-bottom: 1px solid #eeeeee;
+
+
+}
+
+
+
+tbody tr:hover {
+
+
+    background: #fafafa;
+
+
+}
+
+
+
+
+
+/* ==========================
+ CHART
+========================== */
+
+
+#securityChart {
+
+
+    max-height: 350px;
+
+
+}
+
+
+
+
+
+
+/* ==========================
+ RESPONSIVE
+========================== */
+
+
+@media(max-width:1100px){
+
+
+.stats-container {
+
+
+    grid-template-columns: repeat(2,1fr);
+
+
+}
+
+
+}
+
+
+
+
+@media(max-width:800px){
+
+
+.sidebar {
+
+
+    position: relative;
+
+    width: 100%;
+
+    height: auto;
+
+
+}
+
+
+body {
+
+
+    display: block;
+
+
+}
+
+
+.main {
+
+
+    margin-left: 0;
+
+    width: 100%;
+
+
+}
+
+
+
+.top-header {
+
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 20px;
+
+
+}
+
+
+
+.stats-container {
+
+
+    grid-template-columns: 1fr;
+
+
+}
+
+
+
+.panel {
+
+
+    overflow-x: auto;
+
+
+}
+
+
+
+table {
+
+
+    min-width: 700px;
+
+
+}
+
+
+
+}
