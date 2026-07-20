@@ -1,0 +1,37 @@
+{"level":"error","message":"POST /api/auth/login 400 { message: 'Invalid credentials' }","timestamp":"2026-07-15T10:05:12.860Z"}
+{"level":"error","message":"POST /api/auth/register 400 { message: 'Email already registered' }","timestamp":"2026-07-15T10:11:12.238Z"}
+{"level":"error","message":"POST /api/auth/register 400 { message: 'Email already registered' }","timestamp":"2026-07-15T10:12:52.702Z"}
+{"level":"error","message":"POST /api/auth/register 400 { message: 'Email already registered' }","timestamp":"2026-07-15T10:13:45.336Z"}
+{"level":"error","message":"POST /api/auth/register 400 { message: 'Email already registered' }","timestamp":"2026-07-15T10:15:58.163Z"}
+{"level":"error","message":"POST /api/auth/register 400 { message: 'Email already registered' }","timestamp":"2026-07-15T10:17:09.588Z"}
+{"level":"error","message":"POST /api/auth/register 400 { message: 'Email already registered' }","timestamp":"2026-07-15T10:17:10.364Z"}
+{"level":"error","message":"POST /api/auth/register 400 { message: 'Email already registered' }","timestamp":"2026-07-15T10:22:33.806Z"}
+{"level":"error","message":"POST /api/admin/reviews/notfound/approve 404 { message: 'Not found' }","timestamp":"2026-07-15T10:22:34.550Z"}
+{"level":"error","message":"POST /api/admin/contacts/notfound/respond 404 { message: 'Not found' }","timestamp":"2026-07-15T10:22:34.583Z"}
+{"level":"error","message":"DELETE /api/admin/uploads/nope.txt 404 { message: 'Not found' }","timestamp":"2026-07-15T10:22:34.614Z"}
+{"level":"error","message":"POST /api/auth/register 400 { message: 'Email already registered' }","timestamp":"2026-07-15T10:22:34.641Z"}
+{"level":"error","message":"POST /api/auth/register 400 { message: 'Email already registered' }","timestamp":"2026-07-15T10:37:34.336Z"}
+{"level":"error","message":"POST /api/auth/register 400 { message: 'Email already registered' }","timestamp":"2026-07-15T10:37:35.059Z"}
+{"level":"error","message":"POST /api/admin/reviews/notfound/approve 404 { message: 'Not found' }","timestamp":"2026-07-15T10:37:46.688Z"}
+{"level":"error","message":"POST /api/admin/contacts/notfound/respond 404 { message: 'Not found' }","timestamp":"2026-07-15T10:37:46.756Z"}
+{"level":"error","message":"DELETE /api/admin/uploads/nope.txt 404 { message: 'Not found' }","timestamp":"2026-07-15T10:37:46.810Z"}
+{"level":"error","message":"POST /api/auth/register 400 { message: 'Email already registered' }","timestamp":"2026-07-15T10:45:51.612Z"}
+{"level":"error","message":"POST /api/auth/register 400 { message: 'Email already registered' }","timestamp":"2026-07-15T10:45:51.676Z"}
+{"level":"error","message":"POST /api/auth/register 400 { message: 'Email already registered' }","timestamp":"2026-07-15T10:45:59.680Z"}
+{"level":"error","message":"POST /api/admin/reviews/notfound/approve 404 { message: 'Not found' }","timestamp":"2026-07-15T10:46:01.217Z"}
+{"level":"error","message":"POST /api/admin/contacts/notfound/respond 404 { message: 'Not found' }","timestamp":"2026-07-15T10:46:01.250Z"}
+{"level":"error","message":"DELETE /api/admin/uploads/nope.txt 404 { message: 'Not found' }","timestamp":"2026-07-15T10:46:01.278Z"}
+{"level":"error","message":"POST /api/auth/register 400 { message: 'Email already registered' }","timestamp":"2026-07-15T10:46:01.306Z"}
+{"level":"error","message":"POST /api/admin/reviews/notfound/approve 404 { message: 'Not found' }","timestamp":"2026-07-15T10:54:52.675Z"}
+{"level":"error","message":"POST /api/admin/contacts/notfound/respond 404 { message: 'Not found' }","timestamp":"2026-07-15T10:54:52.703Z"}
+{"level":"error","message":"DELETE /api/admin/uploads/nope.txt 404 { message: 'Not found' }","timestamp":"2026-07-15T10:54:52.735Z"}
+{"level":"error","message":"POST /api/auth/login 400 { message: 'Invalid credentials' }","timestamp":"2026-07-15T21:33:44.087Z"}
+{"level":"error","message":"POST /api/auth/login 400 { message: 'Invalid credentials' }","timestamp":"2026-07-15T21:33:52.860Z"}
+{"level":"error","message":"POST /api/auth/login 400 { message: 'Invalid credentials' }","timestamp":"2026-07-15T21:33:53.915Z"}
+{"level":"error","message":"POST /api/auth/login 400 { message: 'Invalid credentials' }","timestamp":"2026-07-15T21:33:55.073Z"}
+{"level":"error","message":"POST /api/auth/login 400 { message: 'Invalid credentials' }","timestamp":"2026-07-15T21:33:55.902Z"}
+{"level":"error","message":"POST /api/auth/login 400 { message: 'Invalid credentials' }","timestamp":"2026-07-15T21:33:56.798Z"}
+{"level":"error","message":"POST /api/auth/login 400 { message: 'Invalid credentials' }","timestamp":"2026-07-15T21:43:45.296Z"}
+{"level":"error","message":"POST /api/auth/login 400 { message: 'Invalid credentials' }","timestamp":"2026-07-15T21:43:49.423Z"}
+{"level":"error","message":"POST /api/auth/login 400 { message: 'Invalid credentials' }","timestamp":"2026-07-15T21:43:56.585Z"}
+{"level":"error","message":"POST /api/auth/login 400 { message: 'Invalid credentials' }","timestamp":"2026-07-15T21:43:57.667Z"}

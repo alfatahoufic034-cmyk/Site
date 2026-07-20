@@ -1,0 +1,523 @@
+[
+  {
+    "id": 1784111821956,
+    "actor_id": "rbacadmin@example.com",
+    "actor_email": "rbacadmin@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "rbacadmin@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T10:37:01.956Z"
+  },
+  {
+    "id": 1784111823769,
+    "actor_id": "rbacuser@example.com",
+    "actor_email": "rbacuser@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "rbacuser@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T10:37:03.769Z"
+  },
+  {
+    "id": 1784111855024,
+    "actor_id": "rbacadmin@example.com",
+    "actor_email": "rbacadmin@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "rbacadmin@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T10:37:35.024Z"
+  },
+  {
+    "id": 1784111855637,
+    "actor_id": "rbacuser@example.com",
+    "actor_email": "rbacuser@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "rbacuser@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T10:37:35.637Z"
+  },
+  {
+    "id": 1784111860478,
+    "actor_id": "testuser@example.com",
+    "actor_email": "testuser@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "testuser@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T10:37:40.478Z"
+  },
+  {
+    "id": 1784111862220,
+    "actor_id": "testuser@example.com",
+    "actor_email": "testuser@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "testuser@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T10:37:42.220Z"
+  },
+  {
+    "id": 1784111866612,
+    "actor_id": "admin@example.com",
+    "actor_email": "admin@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "admin@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T10:37:46.612Z"
+  },
+  {
+    "id": 1784112330448,
+    "actor_id": "monadmin@example.com",
+    "actor_email": "monadmin@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "monadmin@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T10:45:30.448Z"
+  },
+  {
+    "id": 1784112331045,
+    "actor_id": "monsuper@example.com",
+    "actor_email": "monsuper@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "monsuper@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T10:45:31.045Z"
+  },
+  {
+    "id": 1784112352279,
+    "actor_id": "monadmin@example.com",
+    "actor_email": "monadmin@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "monadmin@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T10:45:52.279Z"
+  },
+  {
+    "id": 1784112352918,
+    "actor_id": "monsuper@example.com",
+    "actor_email": "monsuper@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "monsuper@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T10:45:52.918Z"
+  },
+  {
+    "id": 1784112356313,
+    "actor_id": "rbacadmin@example.com",
+    "actor_email": "rbacadmin@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "rbacadmin@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T10:45:56.313Z"
+  },
+  {
+    "id": 1784112357696,
+    "actor_id": "rbacuser@example.com",
+    "actor_email": "rbacuser@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "rbacuser@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T10:45:57.696Z"
+  },
+  {
+    "id": 1784112360885,
+    "actor_id": "admin@example.com",
+    "actor_email": "admin@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "admin@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T10:46:00.885Z"
+  },
+  {
+    "id": 1784112365452,
+    "actor_id": "testuser@example.com",
+    "actor_email": "testuser@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "testuser@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T10:46:05.452Z"
+  },
+  {
+    "id": 1784112366880,
+    "actor_id": "testuser@example.com",
+    "actor_email": "testuser@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "testuser@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T10:46:06.880Z"
+  },
+  {
+    "id": 1784112879625,
+    "actor_id": "monadmin@example.com",
+    "actor_email": "monadmin@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "monadmin@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T10:54:39.624Z"
+  },
+  {
+    "id": 1784112880184,
+    "actor_id": "monsuper@example.com",
+    "actor_email": "monsuper@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "monsuper@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T10:54:40.181Z"
+  },
+  {
+    "id": 1784112883824,
+    "actor_id": "testuser@example.com",
+    "actor_email": "testuser@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "testuser@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T10:54:43.821Z"
+  },
+  {
+    "id": 1784112885075,
+    "actor_id": "testuser@example.com",
+    "actor_email": "testuser@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "testuser@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T10:54:45.073Z"
+  },
+  {
+    "id": 1784112887941,
+    "actor_id": "rbacadmin@example.com",
+    "actor_email": "rbacadmin@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "rbacadmin@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T10:54:47.937Z"
+  },
+  {
+    "id": 1784112889286,
+    "actor_id": "rbacuser@example.com",
+    "actor_email": "rbacuser@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "rbacuser@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T10:54:49.279Z"
+  },
+  {
+    "id": 1784112892623,
+    "actor_id": "admin@example.com",
+    "actor_email": "admin@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "admin@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T10:54:52.621Z"
+  },
+  {
+    "id": 1784116137561,
+    "actor_id": "tokentest@example.com",
+    "actor_email": "tokentest@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "tokentest@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T11:48:57.560Z"
+  },
+  {
+    "id": 1784116459478,
+    "actor_id": "securitysuper@example.com",
+    "actor_email": "securitysuper@example.com",
+    "action": "login_success",
+    "resource": "user",
+    "resource_id": "securitysuper@example.com",
+    "details": {
+      "ip": "::ffff:127.0.0.1"
+    },
+    "created_at": "2026-07-15T11:54:19.473Z"
+  },
+  {
+    "id": 1784116459537,
+    "actor_id": "securitysuper@example.com",
+    "actor_email": "securitysuper@example.com",
+    "action": "read_security_alerts",
+    "resource": "security_alerts",
+    "resource_id": null,
+    "details": {
+      "page": 0,
+      "limit": 0
+    },
+    "created_at": "2026-07-15T11:54:19.534Z"
+  },
+  {
+    "id": 1784151224081,
+    "actor_id": null,
+    "actor_email": "tahouficalpha301@gmail.com",
+    "action": "login_failed",
+    "resource": "user",
+    "resource_id": null,
+    "details": {
+      "ip": "::1",
+      "error": "Invalid credentials"
+    },
+    "created_at": "2026-07-15T21:33:44.078Z"
+  },
+  {
+    "id": 1784151232856,
+    "actor_id": null,
+    "actor_email": "tahouficalpha301@gmail.com",
+    "action": "login_failed",
+    "resource": "user",
+    "resource_id": null,
+    "details": {
+      "ip": "::1",
+      "error": "Invalid credentials"
+    },
+    "created_at": "2026-07-15T21:33:52.854Z"
+  },
+  {
+    "id": 1784151233912,
+    "actor_id": null,
+    "actor_email": "tahouficalpha301@gmail.com",
+    "action": "login_failed",
+    "resource": "user",
+    "resource_id": null,
+    "details": {
+      "ip": "::1",
+      "error": "Invalid credentials"
+    },
+    "created_at": "2026-07-15T21:33:53.910Z"
+  },
+  {
+    "id": 1784151235066,
+    "actor_id": null,
+    "actor_email": "tahouficalpha301@gmail.com",
+    "action": "login_failed",
+    "resource": "user",
+    "resource_id": null,
+    "details": {
+      "ip": "::1",
+      "error": "Invalid credentials"
+    },
+    "created_at": "2026-07-15T21:33:55.064Z"
+  },
+  {
+    "id": 1784151235898,
+    "actor_id": null,
+    "actor_email": "tahouficalpha301@gmail.com",
+    "action": "login_failed",
+    "resource": "user",
+    "resource_id": null,
+    "details": {
+      "ip": "::1",
+      "error": "Invalid credentials"
+    },
+    "created_at": "2026-07-15T21:33:55.897Z"
+  },
+  {
+    "id": 1784151236794,
+    "actor_id": null,
+    "actor_email": "tahouficalpha301@gmail.com",
+    "action": "login_failed",
+    "resource": "user",
+    "resource_id": null,
+    "details": {
+      "ip": "::1",
+      "error": "Invalid credentials"
+    },
+    "created_at": "2026-07-15T21:33:56.792Z"
+  },
+  {
+    "id": 1784151825132,
+    "actor_id": null,
+    "actor_email": "tahouficalpha301@gmail.com",
+    "action": "login_failed",
+    "resource": "user",
+    "resource_id": null,
+    "details": {
+      "ip": "::1",
+      "error": "Invalid credentials"
+    },
+    "created_at": "2026-07-15T21:43:45.129Z"
+  },
+  {
+    "id": 1784151829420,
+    "actor_id": null,
+    "actor_email": "tahouficalpha301@gmail.com",
+    "action": "login_failed",
+    "resource": "user",
+    "resource_id": null,
+    "details": {
+      "ip": "::1",
+      "error": "Invalid credentials"
+    },
+    "created_at": "2026-07-15T21:43:49.417Z"
+  },
+  {
+    "id": 1784151836582,
+    "actor_id": null,
+    "actor_email": "tahouficalfa8@gmail.com",
+    "action": "login_failed",
+    "resource": "user",
+    "resource_id": null,
+    "details": {
+      "ip": "::1",
+      "error": "Invalid credentials"
+    },
+    "created_at": "2026-07-15T21:43:56.580Z"
+  },
+  {
+    "id": 1784151837664,
+    "actor_id": null,
+    "actor_email": "tahouficalpha301@gmail.com",
+    "action": "login_failed",
+    "resource": "user",
+    "resource_id": null,
+    "details": {
+      "ip": "::1",
+      "error": "Invalid credentials"
+    },
+    "created_at": "2026-07-15T21:43:57.663Z"
+  },
+  {
+    "id": 1784188193289,
+    "actor_id": null,
+    "actor_email": "tahouficalpha301@gmail.com",
+    "action": "login_failed",
+    "resource": "user",
+    "resource_id": null,
+    "details": {
+      "ip": "::1",
+      "error": "Invalid credentials"
+    },
+    "created_at": "2026-07-16T07:49:53.287Z"
+  },
+  {
+    "id": 1784188201588,
+    "actor_id": null,
+    "actor_email": "tahouficalpha301@gmail.com",
+    "action": "login_failed",
+    "resource": "user",
+    "resource_id": null,
+    "details": {
+      "ip": "::1",
+      "error": "Invalid credentials"
+    },
+    "created_at": "2026-07-16T07:50:01.584Z"
+  },
+  {
+    "id": 1784188213480,
+    "actor_id": null,
+    "actor_email": "tahouficalpha301@gmail.com",
+    "action": "login_failed",
+    "resource": "user",
+    "resource_id": null,
+    "details": {
+      "ip": "::1",
+      "error": "Invalid credentials"
+    },
+    "created_at": "2026-07-16T07:50:13.478Z"
+  },
+  {
+    "id": 1784188214597,
+    "actor_id": null,
+    "actor_email": "tahouficalpha301@gmail.com",
+    "action": "login_failed",
+    "resource": "user",
+    "resource_id": null,
+    "details": {
+      "ip": "::1",
+      "error": "Invalid credentials"
+    },
+    "created_at": "2026-07-16T07:50:14.595Z"
+  },
+  {
+    "id": 1784188215534,
+    "actor_id": null,
+    "actor_email": "tahouficalpha301@gmail.com",
+    "action": "login_failed",
+    "resource": "user",
+    "resource_id": null,
+    "details": {
+      "ip": "::1",
+      "error": "Invalid credentials"
+    },
+    "created_at": "2026-07-16T07:50:15.532Z"
+  },
+  {
+    "id": 1784188216492,
+    "actor_id": null,
+    "actor_email": "tahouficalpha301@gmail.com",
+    "action": "login_failed",
+    "resource": "user",
+    "resource_id": null,
+    "details": {
+      "ip": "::1",
+      "error": "Invalid credentials"
+    },
+    "created_at": "2026-07-16T07:50:16.489Z"
+  }
+]

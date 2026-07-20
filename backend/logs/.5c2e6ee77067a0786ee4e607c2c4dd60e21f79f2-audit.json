@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 30
+    },
+    "auditLog": "c:\\xampp\\htdocs\\alfa-it-solution\\backend\\logs\\.5c2e6ee77067a0786ee4e607c2c4dd60e21f79f2-audit.json",
+    "files": [
+        {
+            "date": 1784107582580,
+            "name": "c:\\xampp\\htdocs\\alfa-it-solution\\backend\\logs\\2026-07-15-application.log",
+            "hash": "193219c761279a1ba5308a233404129cfd6ed3adc2ef54883e6b3e31c9287da6"
+        }
+    ],
+    "hashType": "sha256"
+}

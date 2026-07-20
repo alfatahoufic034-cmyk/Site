@@ -1,0 +1,46 @@
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:31:34.494Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:31:34.546Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:31:34.632Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:31:34.643Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:32:23.870Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:32:23.896Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:32:23.919Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:32:23.929Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:08.974Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:09.147Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:09.372Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:09.558Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:14.670Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:14.735Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:25.823Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:25.952Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:27.820Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:27.889Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:27.958Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:28.002Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:56.274Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:57.477Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:34:03.417Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:34:03.430Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:36:03.003Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:36:03.062Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:36:03.132Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:36:03.364Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:36:03.655Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:36:03.842Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:36:03.862Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:36:03.868Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:40:35.678Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:40:35.691Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:40:35.708Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:40:35.717Z"}
+{"level":"error","message":"POST /api/auth/login 400 { message: 'Invalid credentials' }","timestamp":"2026-07-16T07:49:53.292Z"}
+{"level":"error","message":"POST /api/auth/login 400 { message: 'Invalid credentials' }","timestamp":"2026-07-16T07:50:01.596Z"}
+{"level":"error","message":"POST /api/auth/login 400 { message: 'Invalid credentials' }","timestamp":"2026-07-16T07:50:13.523Z"}
+{"level":"error","message":"POST /api/auth/login 400 { message: 'Invalid credentials' }","timestamp":"2026-07-16T07:50:14.599Z"}
+{"level":"error","message":"POST /api/auth/login 400 { message: 'Invalid credentials' }","timestamp":"2026-07-16T07:50:15.549Z"}
+{"level":"error","message":"POST /api/auth/login 400 { message: 'Invalid credentials' }","timestamp":"2026-07-16T07:50:16.498Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:50:49.562Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:50:49.574Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:50:49.630Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:50:49.651Z"}

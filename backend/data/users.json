@@ -1,0 +1,18 @@
+[
+  {
+    "email": "tokentest@example.com",
+    "password": "$2b$12$JqC7S1WLuepth7t5zOe4a.NnAML4TmHEsNJdkpibI1Q9O3Yg5hakO",
+    "name": "Token Test",
+    "role": "client",
+    "verified": false,
+    "created_at": "2026-07-15T11:48:56.775Z"
+  },
+  {
+    "email": "securitysuper@example.com",
+    "password": "$2b$12$WSKJtfJL5i6BHmHi/7XW3uTRj0cF7a0xoBmfrs.QdlKCFkw5N9iAO",
+    "name": "Security Super",
+    "role": "super_admin",
+    "verified": false,
+    "created_at": "2026-07-15T11:54:18.386Z"
+  }
+]

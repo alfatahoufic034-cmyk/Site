@@ -1,0 +1,145 @@
+{"level":"info","message":"Server listening on port 5000","timestamp":"2026-07-16T07:31:33.590Z"}
+{"level":"info","message":"Cleanup scheduler started","timestamp":"2026-07-16T07:31:33.834Z"}
+{"level":"info","message":"GET /api/admin/security-alerts ::1","timestamp":"2026-07-16T07:31:34.466Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:31:34.494Z"}
+{"level":"info","message":"GET /api/admin/blocked-ips ::1","timestamp":"2026-07-16T07:31:34.532Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:31:34.546Z"}
+{"level":"info","message":"GET /api/admin/errors ::1","timestamp":"2026-07-16T07:31:34.593Z"}
+{"level":"info","message":"GET /api/admin/audit-logs ::1","timestamp":"2026-07-16T07:31:34.631Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:31:34.632Z"}
+{"level":"info","message":"GET /api/admin/security/stats ::1","timestamp":"2026-07-16T07:31:34.642Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:31:34.643Z"}
+{"level":"info","message":"GET /api/admin/security-alerts ::1","timestamp":"2026-07-16T07:32:23.866Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:32:23.870Z"}
+{"level":"info","message":"GET /api/admin/blocked-ips ::1","timestamp":"2026-07-16T07:32:23.887Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:32:23.896Z"}
+{"level":"info","message":"GET /api/admin/errors ::1","timestamp":"2026-07-16T07:32:23.910Z"}
+{"level":"info","message":"GET /api/admin/audit-logs ::1","timestamp":"2026-07-16T07:32:23.918Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:32:23.919Z"}
+{"level":"info","message":"GET /api/admin/security/stats ::1","timestamp":"2026-07-16T07:32:23.928Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:32:23.929Z"}
+{"level":"info","message":"GET /api/admin/security-alerts ::1","timestamp":"2026-07-16T07:33:08.972Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:08.974Z"}
+{"level":"info","message":"GET /api/admin/blocked-ips ::1","timestamp":"2026-07-16T07:33:09.146Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:09.147Z"}
+{"level":"info","message":"GET /api/admin/errors ::1","timestamp":"2026-07-16T07:33:09.297Z"}
+{"level":"info","message":"GET /api/admin/audit-logs ::1","timestamp":"2026-07-16T07:33:09.371Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:09.372Z"}
+{"level":"info","message":"GET /api/admin/security/stats ::1","timestamp":"2026-07-16T07:33:09.557Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:09.558Z"}
+{"level":"info","message":"GET /api/admin/security-alerts ::1","timestamp":"2026-07-16T07:33:14.668Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:14.670Z"}
+{"level":"info","message":"GET /api/admin/blocked-ips ::1","timestamp":"2026-07-16T07:33:14.734Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:14.735Z"}
+{"level":"info","message":"GET /api/admin/errors ::1","timestamp":"2026-07-16T07:33:14.760Z"}
+{"level":"info","message":"GET /api/admin/audit-logs ::1","timestamp":"2026-07-16T07:33:25.822Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:25.823Z"}
+{"level":"info","message":"GET /api/admin/security/stats ::1","timestamp":"2026-07-16T07:33:25.951Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:25.952Z"}
+{"level":"info","message":"GET /api/admin/security-alerts ::1","timestamp":"2026-07-16T07:33:27.819Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:27.820Z"}
+{"level":"info","message":"GET /api/admin/blocked-ips ::1","timestamp":"2026-07-16T07:33:27.888Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:27.889Z"}
+{"level":"info","message":"GET /api/admin/errors ::1","timestamp":"2026-07-16T07:33:27.930Z"}
+{"level":"info","message":"GET /api/admin/audit-logs ::1","timestamp":"2026-07-16T07:33:27.957Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:27.958Z"}
+{"level":"info","message":"GET /api/admin/security/stats ::1","timestamp":"2026-07-16T07:33:28.001Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:28.002Z"}
+{"level":"info","message":"GET /api/admin/security-alerts ::1","timestamp":"2026-07-16T07:33:56.273Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:56.274Z"}
+{"level":"info","message":"GET /api/admin/blocked-ips ::1","timestamp":"2026-07-16T07:33:57.476Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:33:57.477Z"}
+{"level":"info","message":"GET /api/admin/errors ::1","timestamp":"2026-07-16T07:34:03.395Z"}
+{"level":"info","message":"GET /api/admin/audit-logs ::1","timestamp":"2026-07-16T07:34:03.415Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:34:03.417Z"}
+{"level":"info","message":"GET /api/admin/security/stats ::1","timestamp":"2026-07-16T07:34:03.429Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:34:03.430Z"}
+{"level":"info","message":"GET /api/admin/security-alerts ::1","timestamp":"2026-07-16T07:36:03.002Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:36:03.003Z"}
+{"level":"info","message":"GET /api/admin/blocked-ips ::1","timestamp":"2026-07-16T07:36:03.061Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:36:03.062Z"}
+{"level":"info","message":"GET /api/admin/errors ::1","timestamp":"2026-07-16T07:36:03.085Z"}
+{"level":"info","message":"GET /api/admin/audit-logs ::1","timestamp":"2026-07-16T07:36:03.131Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:36:03.132Z"}
+{"level":"info","message":"GET /api/admin/security/stats ::1","timestamp":"2026-07-16T07:36:03.363Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:36:03.364Z"}
+{"level":"info","message":"GET /api/admin/security-alerts ::1","timestamp":"2026-07-16T07:36:03.653Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:36:03.655Z"}
+{"level":"info","message":"GET /api/admin/blocked-ips ::1","timestamp":"2026-07-16T07:36:03.841Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:36:03.842Z"}
+{"level":"info","message":"GET /api/admin/errors ::1","timestamp":"2026-07-16T07:36:03.854Z"}
+{"level":"info","message":"GET /api/admin/audit-logs ::1","timestamp":"2026-07-16T07:36:03.860Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:36:03.862Z"}
+{"level":"info","message":"GET /api/admin/security/stats ::1","timestamp":"2026-07-16T07:36:03.867Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:36:03.868Z"}
+{"level":"info","message":"GET /api/admin/security-alerts ::1","timestamp":"2026-07-16T07:40:35.675Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:40:35.678Z"}
+{"level":"info","message":"GET /api/admin/blocked-ips ::1","timestamp":"2026-07-16T07:40:35.688Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:40:35.691Z"}
+{"level":"info","message":"GET /api/admin/errors ::1","timestamp":"2026-07-16T07:40:35.701Z"}
+{"level":"info","message":"GET /api/admin/audit-logs ::1","timestamp":"2026-07-16T07:40:35.707Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:40:35.708Z"}
+{"level":"info","message":"GET /api/admin/security/stats ::1","timestamp":"2026-07-16T07:40:35.716Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:40:35.717Z"}
+{"level":"info","message":"Server listening on port 5000","timestamp":"2026-07-16T07:41:05.684Z"}
+{"level":"info","message":"Cleanup scheduler started","timestamp":"2026-07-16T07:41:05.745Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:49:53.206Z"}
+{"level":"info","message":"tahouficalpha301@gmail.com login_failed user","timestamp":"2026-07-16T07:49:53.290Z"}
+{"level":"error","message":"POST /api/auth/login 400 { message: 'Invalid credentials' }","timestamp":"2026-07-16T07:49:53.292Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:50:01.507Z"}
+{"level":"info","message":"tahouficalpha301@gmail.com login_failed user","timestamp":"2026-07-16T07:50:01.590Z"}
+{"level":"error","message":"POST /api/auth/login 400 { message: 'Invalid credentials' }","timestamp":"2026-07-16T07:50:01.596Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:50:13.365Z"}
+{"level":"info","message":"tahouficalpha301@gmail.com login_failed user","timestamp":"2026-07-16T07:50:13.481Z"}
+{"level":"error","message":"POST /api/auth/login 400 { message: 'Invalid credentials' }","timestamp":"2026-07-16T07:50:13.523Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:50:14.562Z"}
+{"level":"info","message":"tahouficalpha301@gmail.com login_failed user","timestamp":"2026-07-16T07:50:14.598Z"}
+{"level":"error","message":"POST /api/auth/login 400 { message: 'Invalid credentials' }","timestamp":"2026-07-16T07:50:14.599Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:50:15.479Z"}
+{"level":"info","message":"tahouficalpha301@gmail.com login_failed user","timestamp":"2026-07-16T07:50:15.540Z"}
+{"level":"error","message":"POST /api/auth/login 400 { message: 'Invalid credentials' }","timestamp":"2026-07-16T07:50:15.549Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:50:16.444Z"}
+{"level":"info","message":"tahouficalpha301@gmail.com login_failed user","timestamp":"2026-07-16T07:50:16.496Z"}
+{"level":"error","message":"POST /api/auth/login 400 { message: 'Invalid credentials' }","timestamp":"2026-07-16T07:50:16.498Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:50:17.432Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:50:18.381Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:50:19.862Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:50:20.450Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:50:20.591Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:50:20.847Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:50:21.134Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:50:22.164Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:50:22.843Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:50:23.113Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:50:23.836Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:50:24.132Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:50:24.549Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:50:24.649Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:50:24.943Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:50:25.582Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:50:25.715Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:50:41.901Z"}
+{"level":"info","message":"GET /api/admin/security-alerts ::1","timestamp":"2026-07-16T07:50:49.559Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:50:49.562Z"}
+{"level":"info","message":"GET /api/admin/blocked-ips ::1","timestamp":"2026-07-16T07:50:49.573Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:50:49.574Z"}
+{"level":"info","message":"GET /api/admin/errors ::1","timestamp":"2026-07-16T07:50:49.588Z"}
+{"level":"info","message":"GET /api/admin/audit-logs ::1","timestamp":"2026-07-16T07:50:49.598Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:50:49.630Z"}
+{"level":"info","message":"GET /api/admin/security/stats ::1","timestamp":"2026-07-16T07:50:49.649Z"}
+{"level":"error","message":"Auth middleware error : Cannot read properties of null (reading 'auth')","timestamp":"2026-07-16T07:50:49.651Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:54:32.642Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:54:33.673Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:54:34.812Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:54:38.345Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:54:45.178Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:54:55.354Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:54:56.545Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:54:57.529Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:54:58.446Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:54:59.396Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:55:00.296Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:55:01.406Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:55:02.330Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:55:03.328Z"}
+{"level":"info","message":"POST /api/auth/login ::1","timestamp":"2026-07-16T07:55:04.664Z"}
