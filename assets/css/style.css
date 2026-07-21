@@ -3721,3 +3721,65 @@ body.modal-open{
     }
 
 }
+
+
+
+
+
+
+
+/* ======================================================
+   BOUTONS D'AUTHENTIFICATION QUI A CENTREE (CONNEXION / INSCRIPTION)
+   ====================================================== */
+
+.auth-buttons{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.auth-buttons a{
+    width:180px;
+    height:55px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    font-size:20px;
+    font-weight:700;
+    border-radius:12px;
+    transition:.3s ease;
+}
+
+/* ==========================
+   BOUTON CONNEXION
+   ========================== */
+
+.btn-login{
+    background:#fff;
+    color:#111;
+    border:2px solid #111;
+}
+
+.btn-login:hover{
+    background:#111;
+    color:#fff;
+    transform:translateY(-2px);
+}
+
+/* ==========================
+   BOUTON INSCRIPTION
+   ========================== */
+
+.btn-register{
+    background:#d4af37;
+    color:#111;
+    border:2px solid #d4af37;
+}
+
+.btn-register:hover{
+    background:#c49a16;
+    border-color:#c49a16;
+    color:#fff;
+    transform:translateY(-2px);
+}
