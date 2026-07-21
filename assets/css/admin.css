@@ -787,3 +787,103 @@ tbody tr:hover {
   flex-direction: column;
   gap: 10px;
 }
+
+
+/* ===========================================
+   ACTIONS DEMANDES ADMIN
+=========================================== */
+
+.actions-cell{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Boutons généraux */
+
+.actions-cell button{
+
+    padding:10px 16px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.3s ease;
+
+    color:#fff;
+}
+
+/* ==========================
+   Mettre à jour
+========================== */
+
+.update-btn{
+
+    background:#0d6efd;
+
+}
+
+.update-btn:hover{
+
+    background:#0b5ed7;
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================
+   Envoyer Email
+========================== */
+
+.sendMailBtn{
+
+    background:#198754;
+
+}
+
+.sendMailBtn:hover{
+
+    background:#157347;
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================
+   Supprimer
+========================== */
+
+.delete-btn{
+
+    background:#dc3545;
+
+}
+
+.delete-btn:hover{
+
+    background:#bb2d3b;
+
+    transform:translateY(-2px);
+
+}
+
+/* Bouton désactivé */
+
+.actions-cell button:disabled{
+
+    opacity:.6;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+}

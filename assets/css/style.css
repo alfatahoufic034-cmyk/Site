@@ -239,6 +239,65 @@ footer {
   }
 }
 
+/* ===== HERO BUTTONS ===== */
+
+.hero-content{
+    position: relative;
+    z-index: 2;
+}
+
+.hero-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;          /* espace entre les boutons */
+    margin-top: 35px;
+}
+
+.hero-buttons .btn{
+    width: 260px;       /* même largeur */
+    height: 60px;       /* même hauteur */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0;          /* supprime le margin-left de .btn */
+    padding: 0;         /* évite les différences de taille */
+
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: .3s;
+    box-sizing: border-box;
+}
+
+/* Bouton Demander un service */
+.hero-buttons .btn-gold{
+    background: #d4af37;
+    color: #111;
+    border: 2px solid #d4af37;
+}
+
+.hero-buttons .btn-gold:hover{
+    background: #c79e1a;
+    border-color: #c79e1a;
+    color: #111;
+}
+
+/* Bouton Voir les services */
+.hero-buttons .btn:not(.btn-gold){
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.hero-buttons .btn:not(.btn-gold):hover{
+    background: #fff;
+    color: #111;
+}
+
 
 
 
@@ -2597,9 +2656,9 @@ graphique espace client
 
 
 
-/* ======================================================
-   BOUTONS CONNEXION / INSCRIPTION - VERSION PC
-   ====================================================== */
+/* ==================================================================
+   BOUTONS CONNEXION  QUI A BIEN CENTREE/ INSCRIPTION - VERSION PC
+   ====================================================== ==========*/
 
 @media screen and (min-width:1024px){
 

@@ -35,6 +35,54 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // =====================================
+// SUPPRESSION DEMANDE
+// =====================================
+function attachDeleteEvents() {
+
+  document.querySelectorAll(".delete-btn").forEach(btn => {
+
+    btn.onclick = async () => {
+
+      const id = btn.dataset.id;
+
+      if (!id) {
+        alert("ID demande introuvable");
+        return;
+      }
+
+      if (!confirm("Voulez-vous supprimer cette demande ?")) {
+        return;
+      }
+
+      try {
+
+        const { error } = await supabaseClient
+          .from("demandes")
+          .delete()
+          .eq("id", id);
+
+        if (error) {
+          throw error;
+        }
+
+        alert("✅ Demande supprimée");
+
+        await loadDemandes();
+
+      } catch (error) {
+
+        console.error("DELETE ERROR :", error);
+        alert("❌ Erreur : " + error.message);
+
+      }
+
+    };
+
+  });
+
+}
+
+  // =====================================
   // SESSION ADMIN
   // =====================================
   async function checkAdminSession() {
@@ -162,12 +210,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     Envoyer Email
   </button>
 
+  <button
+      class="delete-btn"
+      data-id="${item.id}">
+      Supprimer
+  </button>
+
 </td>
       </tr>
     `).join("");
 
     attachUpdateEvents();
     attachEmailEvents();
+    attachDeleteEvents();
   }
 
   // =====================================

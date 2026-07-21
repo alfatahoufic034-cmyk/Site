@@ -664,3 +664,72 @@ table {
 
 
 }
+
+
+.system-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(4,1fr);
+
+gap:20px;
+
+}
+
+
+
+.system-card{
+
+background:white;
+
+padding:25px;
+
+border-radius:15px;
+
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+text-align:center;
+
+}
+
+
+
+.system-card i{
+
+font-size:35px;
+
+color:#d4a017;
+
+}
+
+
+
+.system-card h3{
+
+margin:15px 0;
+
+}
+
+
+
+.system-card p{
+
+font-size:25px;
+
+font-weight:bold;
+
+}
+
+
+
+@media(max-width:900px){
+
+.system-grid{
+
+grid-template-columns:
+repeat(2,1fr);
+
+}
+
+}

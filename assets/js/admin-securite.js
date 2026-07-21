@@ -652,6 +652,84 @@ ${new Date(log.created_at)
 }
 
 
+async function loadSystemStats(){
+
+
+try{
+
+
+const res =
+await fetch(
+"http://localhost:5000/api/system/stats"
+);
+
+
+
+const data =
+await res.json();
+
+
+
+document.getElementById("cpuUsage")
+.textContent =
+data.cpu.usage;
+
+
+
+document.getElementById("ramUsage")
+.textContent =
+data.ram.usage;
+
+
+
+document.getElementById("ramDetail")
+.textContent =
+`${data.ram.used} Go / ${data.ram.total} Go`;
+
+
+
+document.getElementById("diskUsage")
+.textContent =
+data.disk.used;
+
+
+
+let hours =
+Math.floor(data.uptime.seconds /3600);
+
+
+
+document.getElementById("uptime")
+.textContent =
+hours+" heures";
+
+
+
+}
+catch(err){
+
+console.error(
+"Erreur monitoring",
+err
+);
+
+}
+
+
+}
+
+
+
+loadSystemStats();
+
+
+
+setInterval(
+loadSystemStats,
+10000
+);
+
+
 
 
 

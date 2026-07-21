@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const enCours = document.getElementById("enCours");
   const terminees = document.getElementById("terminees");
   const rejetees = document.getElementById("rejetees");
+  const supprimees = document.getElementById("supprimees");
 
   const totalClients = document.getElementById("totalClients");
   const totalAvis = document.getElementById("totalAvis");
@@ -94,6 +95,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           nom_complet,
           email,
           service,
+          deleted,
           statut,
           created_at
         `)
@@ -109,6 +111,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       let countEnCours = 0;
       let countTerminees = 0;
       let countRejetees = 0;
+      let countSupprimees = 0;
 
       demandes.forEach((item) => {
         const status = (item.statut || "").toLowerCase().trim();
@@ -134,6 +137,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         ) {
           countRejetees++;
         }
+
+        if (item.deleted === true) {
+           countSupprimees++;
+}
       });
 
       // Affichage stats
@@ -141,14 +148,17 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (enCours) enCours.textContent = countEnCours;
       if (terminees) terminees.textContent = countTerminees;
       if (rejetees) rejetees.textContent = countRejetees;
+      if (supprimees) supprimees.textContent = countSupprimees;
 
       // Fonctions supplémentaires
       renderRecentRequests(demandes);
       loadTodayDemandes(demandes);
       renderChart(
-        countEnCours,
-        countTerminees,
-        countRejetees
+     countEnCours,
+     countTerminees,
+     countRejetees,
+     countSupprimees
+
       );
 
     } catch (err) {
@@ -170,7 +180,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         `;
       }
 
-      renderChart(0, 0, 0);
+      renderChart(0, 0, 0, 0);
     }
   }
 
@@ -260,38 +270,53 @@ document.addEventListener("DOMContentLoaded", async () => {
   // TABLE DES DEMANDES RECENTES
   // =====================================
   function renderRecentRequests(demandes) {
-    if (!recentRequestsTable) return;
 
-    if (!demandes.length) {
-      recentRequestsTable.innerHTML = `
-        <tr>
-          <td colspan="5">
-            Aucune demande trouvée
-          </td>
-        </tr>
-      `;
-      return;
-    }
-
-    const limited = demandes.slice(0, 6);
-
-    recentRequestsTable.innerHTML = limited.map((item) => `
+  if (!demandes.length) {
+    recentRequestsTable.innerHTML = `
       <tr>
-        <td>${item.nom_complet || "-"}</td>
-        <td>${item.service || "-"}</td>
-        <td>
-          ${
-            item.created_at
-              ? new Date(item.created_at).toLocaleDateString("fr-FR")
-              : "-"
-          }
-        </td>
-        <td>${formatStatus(item.statut)}</td>
-        <td>
-          <a href="demandes.html">Voir</a>
+        <td colspan="6">
+          Aucune demande trouvée
         </td>
       </tr>
-    `).join("");
+    `;
+    return;
+  }
+
+  const limited = demandes.slice(0, 6);
+
+  recentRequestsTable.innerHTML = limited.map((item) => `
+  <tr>
+    <td>${item.nom_complet || "-"}</td>
+
+    <td>${item.service || "-"}</td>
+
+    <td>
+      ${
+        item.created_at
+          ? new Date(item.created_at).toLocaleDateString("fr-FR")
+          : "-"
+      }
+    </td>
+
+    <td>
+      ${
+        item.created_at
+          ? new Date(item.created_at).toLocaleTimeString("fr-FR", {
+              hour: "2-digit",
+              minute: "2-digit",
+              second: "2-digit"
+            })
+          : "-"
+      }
+    </td>
+
+    <td>${formatStatus(item.statut)}</td>
+
+    <td>
+      <a href="demandes.html">Voir</a>
+    </td>
+  </tr>
+`).join("");
   }
 
   // =====================================
@@ -331,7 +356,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   function renderChart(
     enCoursValue,
     termineesValue,
-    rejeteesValue
+    rejeteesValue,
+     supprimeesValue
+    
   ) {
     const canvas = document.getElementById("adminDemandChart");
 
@@ -357,14 +384,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         labels: [
           "En cours",
           "Terminées",
-          "Rejetées"
+          "Rejetées",
+           "Supprimées"
         ],
         datasets: [
           {
             data: [
               enCoursValue,
               termineesValue,
-              rejeteesValue
+              rejeteesValue,
+              supprimeesValue
             ],
             borderWidth: 1
           }

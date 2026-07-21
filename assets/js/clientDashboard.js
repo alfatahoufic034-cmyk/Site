@@ -103,17 +103,36 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (!demandes.length) {
       recentRequestsTable.innerHTML =
-        `<tr><td colspan="3">Aucune demande</td></tr>`;
+  `<tr><td colspan="4">Aucune demande</td></tr>`;
       return;
     }
 
     recentRequestsTable.innerHTML = demandes.slice(0, 5).map(d => `
-      <tr>
-        <td>${d.service || "-"}</td>
-        <td>${d.created_at ? new Date(d.created_at).toLocaleDateString("fr-FR") : "-"}</td>
-        <td>${d.statut || "-"}</td>
-      </tr>
-    `).join("");
+  <tr>
+    <td>${d.service || "-"}</td>
+
+    <td>
+      ${
+        d.created_at
+          ? new Date(d.created_at).toLocaleDateString("fr-FR")
+          : "-"
+      }
+    </td>
+
+    <td>
+      ${
+        d.created_at
+          ? new Date(d.created_at).toLocaleTimeString("fr-FR", {
+              hour: "2-digit",
+              minute: "2-digit"
+            })
+          : "-"
+      }
+    </td>
+
+    <td>${d.statut || "-"}</td>
+  </tr>
+`).join("");
   }
 
   // =====================================
