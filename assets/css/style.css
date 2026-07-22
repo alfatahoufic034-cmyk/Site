@@ -2702,131 +2702,57 @@ graphique espace client
 
 
 /* ======================================================
-   BOUTONS CONNEXION / INSCRIPTION (TOUS ECRANS)
-====================================================== */
-
-.boutons-container {
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:20px;
-    margin:30px 0;
-}
-
-
-.connexion,
-.inscription {
-
-    width:180px;
-    height:50px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    font-size:16px;
-    font-weight:700;
-
-    border-radius:10px;
-
-    text-decoration:none;
-    cursor:pointer;
-
-    transition:.3s ease;
-}
-
-
-/* ==========================
-   CONNEXION
-========================== */
-
-.connexion {
-
-    border:2px solid #111;
-    background:#fff;
-    color:#111;
-
-}
-
-
-.connexion:hover {
-
-    background:#111;
-    color:#fff;
-    transform:translateY(-2px);
-
-}
-
-
-/* ==========================
-   INSCRIPTION
-========================== */
-
-.inscription {
-
-    background:#d4af37;
-    color:#111;
-    border:2px solid #d4af37;
-
-}
-
-
-.inscription:hover {
-
-    background:#c9a82e;
-    border-color:#c9a82e;
-    color:#fff;
-    transform:translateY(-2px);
-
-}
-
-
-
-/* ======================================================
-   VERSION MOBILE
+   BOUTONS CONNEXION / INSCRIPTION - MOBILE
 ====================================================== */
 
 @media screen and (max-width:768px){
 
     .boutons-container {
 
-        flex-direction:column;
-        gap:15px;
-        margin:25px 0;
-
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:10px;
+        margin:0;
     }
 
 
     .connexion,
     .inscription {
 
-        width:90%;
-        max-width:300px;
-        height:48px;
+        width:auto;
+        height:auto;
 
-    }
+        padding:8px 15px;
 
-}
+        display:flex;
+        align-items:center;
+        justify-content:center;
 
+        font-size:14px;
+        font-weight:700;
 
-/* ======================================================
-   VERSION PC
-====================================================== */
+        border-radius:8px;
 
-@media screen and (min-width:1024px){
-
-    .boutons-container {
-
-        flex-direction:row;
-        gap:30px;
+        text-decoration:none;
 
     }
 
 
-    .connexion,
+    .connexion {
+
+        border:2px solid #111;
+        background:#fff;
+        color:#111;
+
+    }
+
+
     .inscription {
 
-        width:180px;
+        background:#d4af37;
+        border:2px solid #d4af37;
+        color:#111;
 
     }
 
