@@ -305,30 +305,32 @@ footer {
 
     .hero-buttons{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;   /* Horizontal */
         justify-content: center;
-        align-items: center;   /* Centre les boutons */
-        gap: 15px;
+        align-items: center;
+        gap: 10px;
         margin-top: 25px;
-        padding: 0 20px;
+        padding: 0 10px;
+        flex-wrap: wrap;       /* Passe à la ligne seulement si nécessaire */
     }
 
     .hero-buttons .btn{
-        width: 280px;          /* Même largeur pour les deux boutons */
-        max-width: 100%;       /* Ne dépasse jamais l'écran */
-        height: 55px;
+        flex: 1;
+        max-width: 180px;
+        height: 50px;
 
         display: flex;
         justify-content: center;
         align-items: center;
 
         margin: 0;
-        padding: 0;
+        padding: 0 10px;
 
-        font-size: 17px;
+        font-size: 15px;
         font-weight: 700;
 
         box-sizing: border-box;
+        text-align: center;
     }
 
     .hero h2{
