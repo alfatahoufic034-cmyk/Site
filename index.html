@@ -1,71 +1,95 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ALFA IT SERVICE - Accueil</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="assets/css/style.css">
+    <title>ALFA IT SERVICE - Accueil</title>
 
-  <!-- ICONS (Footer réseaux sociaux) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
 
-  
-<head>
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-E2XZT1R3JN"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E2XZT1R3JN"></script>
 
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-E2XZT1R3JN');
-</script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-E2XZT1R3JN');
+    </script>
+
+    <!-- Javascript -->
+    <script defer src="assets/js/main.js"></script>
 
 </head>
-  <script defer src="assets/js/main.js"></script>
-</head>
+
 <body>
 
-  <!-- TEXTE DEFILANT -->
-<div class="top-banner">
-    <strong class="scroll-text">
-        🌐 ALFA IT SERVICES — Solutions informatiques rapides et fiables
-        • Maintenance informatique • Réseaux • Développement web • Installation de logiciel
-        • Assistance technique • Votre satisfaction est notre priorité • Demandez votre service dès maintenant !
-    </strong>
-</div>
+    <!-- =========================
+         TEXTE DEFILANT
+    ========================== -->
 
-  <!-- ===== NAVBAR ===== -->
-  <header class="navbar">
-    <div class="logo">
-      <img src="assets/images/logo.png" alt="Logo ALFA IT SERVICES">
-      <h1>ALFA IT SERVICES</h1>
+    <div class="top-banner">
+        <div class="scroll-wrapper">
+
+            <strong class="scroll-text">
+                🌐 ALFA IT SERVICES — Solutions informatiques rapides et fiables
+                • Maintenance informatique • Réseaux • Développement web • Installation de logiciel
+                • Assistance technique • Votre satisfaction est notre priorité • Demandez votre service dès maintenant !
+            </strong>
+
+            <strong class="scroll-text">
+                🌐 ALFA IT SERVICES — Solutions informatiques rapides et fiables
+                • Maintenance informatique • Réseaux • Développement web • Installation de logiciel
+                • Assistance technique • Votre satisfaction est notre priorité • Demandez votre service dès maintenant !
+            </strong>
+
+        </div>
     </div>
 
-    <nav>
-      <ul>
-        <li><a href="#">Accueil</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="demande.html">Demande</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="actualites.html">Actualités</a></li>
-        <li><a href="avis.html">Avis</a></li>
-      </ul>
-    </nav>
+    <!-- =========================
+            NAVBAR
+    ========================== -->
 
-    <div class="auth-buttons">
-  <a href="auth/login.html" class="connexion">Connexion</a>
-  <a href="auth/register.html" class="inscription">Inscription</a>
-</div>
+    <header class="navbar">
 
-    <!-- Hamburger Menu Icon (Mobile Only) -->
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </header>
+        <div class="logo">
+            <img src="assets/images/logo.png" alt="Logo ALFA IT SERVICES">
+            <h1>ALFA IT SERVICES</h1>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="demande.html">Demande</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="actualites.html">Actualités</a></li>
+                <li><a href="avis.html">Avis</a></li>
+            </ul>
+        </nav>
+
+        <div class="auth-buttons">
+            <a href="auth/login.html" class="connexion">Connexion</a>
+            <a href="auth/register.html" class="inscription">Inscription</a>
+        </div>
+
+        <!-- Menu Hamburger -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </header>
 
   <!-- Mobile Menu Overlay -->
   <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
