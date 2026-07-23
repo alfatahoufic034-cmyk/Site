@@ -104,44 +104,46 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (error) throw error;
 
       const demandes = data || [];
+      const total = demandes.filter(item => item.deleted !== true).length;
 
       console.log("📦 Demandes chargées :", demandes);
 
-      let total = demandes.length;
       let countEnCours = 0;
-      let countTerminees = 0;
-      let countRejetees = 0;
-      let countSupprimees = 0;
+let countTerminees = 0;
+let countRejetees = 0;
+let countSupprimees = 0;
 
-      demandes.forEach((item) => {
-        const status = (item.statut || "").toLowerCase().trim();
+demandes.forEach((item) => {
 
-        if (
-          status === "en_cours" ||
-          status === "en cours" ||
-          status === "encours"
-        ) {
-          countEnCours++;
-        }
+  // Si la demande est supprimée
+  if (item.deleted === true) {
+    countSupprimees++;
+    return;
+  }
 
-        if (
-          status === "terminee" ||
-          status === "terminée"
-        ) {
-          countTerminees++;
-        }
+  const status = (item.statut || "").toLowerCase().trim();
 
-        if (
-          status === "rejetee" ||
-          status === "rejetée"
-        ) {
-          countRejetees++;
-        }
+  if (
+    status === "en_cours" ||
+    status === "en cours" ||
+    status === "encours"
+  ) {
+    countEnCours++;
+  }
+  else if (
+    status === "terminee" ||
+    status === "terminée"
+  ) {
+    countTerminees++;
+  }
+  else if (
+    status === "rejetee" ||
+    status === "rejetée"
+  ) {
+    countRejetees++;
+  }
 
-        if (item.deleted === true) {
-           countSupprimees++;
-}
-      });
+});
 
       // Affichage stats
       if (totalDemandes) totalDemandes.textContent = total;
@@ -247,6 +249,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // NOUVELLES DEMANDES DU JOUR
   // =====================================
   function loadTodayDemandes(demandes) {
+    demandes = demandes.filter(item => item.deleted !== true);
     if (!todayDemandes) return;
 
     const today = new Date();
@@ -270,7 +273,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // TABLE DES DEMANDES RECENTES
   // =====================================
   function renderRecentRequests(demandes) {
-
+   demandes = demandes.filter(item => item.deleted !== true);
   if (!demandes.length) {
     recentRequestsTable.innerHTML = `
       <tr>

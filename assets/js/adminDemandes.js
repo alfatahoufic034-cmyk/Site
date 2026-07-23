@@ -57,18 +57,23 @@ function attachDeleteEvents() {
       try {
 
         const { error } = await supabaseClient
-          .from("demandes")
-          .delete()
-          .eq("id", id);
+  .from("demandes")
+  .update({
+    deleted: true
+  })
+  .eq("id", id);
 
-        if (error) {
-          throw error;
-        }
+if (error) {
+  throw error;
+}
 
-        alert("✅ Demande supprimée");
+alert("✅ Demande supprimée");
 
-        await loadDemandes();
+await loadDemandes();
 
+if (typeof loadStats === "function") {
+  await loadStats();
+}
       } catch (error) {
 
         console.error("DELETE ERROR :", error);
@@ -139,10 +144,10 @@ function attachDeleteEvents() {
   async function loadDemandes() {
     try {
       const { data, error } = await supabaseClient
-        .from("demandes")
-        .select("*")
-        .order("created_at", { ascending: false });
-
+  .from("demandes")
+  .select("*")
+  .eq("deleted", false)
+  .order("created_at", { ascending: false });
       if (error) throw error;
 
       allDemandes = data || [];
@@ -259,7 +264,11 @@ function attachDeleteEvents() {
 
           alert("✅ Statut mis à jour");
 
-          await loadDemandes();
+await loadDemandes();
+
+if (typeof loadStats === "function") {
+  await loadStats();
+}
 
         } catch (err) {
           console.error("❌ UPDATE ERROR FULL :", err);
