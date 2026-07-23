@@ -35,6 +35,34 @@ body {
     z-index: 1000;
 }
 
+/* ==========================
+   VERSION MOBILE
+========================== */
+@media (max-width: 768px) {
+
+    .top-banner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 35px;
+        z-index: 9999;
+    }
+
+    .navbar {
+        position: fixed;
+        top: 35px;
+        left: 0;
+        width: 100%;
+        z-index: 9998;
+    }
+
+    body {
+        padding-top: 110px; /* 35px + hauteur de la navbar */
+    }
+
+}
+
 .logo {
   display: flex;
   align-items: center;
