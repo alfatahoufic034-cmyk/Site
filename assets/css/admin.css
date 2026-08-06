@@ -1,7 +1,7 @@
-/* ==================================================
-   ADMIN DASHBOARD CSS - ALFA IT SERVICE
-   Design Pro Noir + Or
-================================================== */
+/* =====================================================================
+                 ADMIN DASHBOARD CSS - ALFA IT SERVICE
+                      Design Pro Noir + Or
+======================================================================= */
 
 * {
   margin: 0;
@@ -279,11 +279,10 @@ td {
 
 
 
-amelioration de la page demande-admin 
 
-/* ========================================
-   PAGE GESTION DEMANDES ADMIN
-======================================== */
+/* ====================================================================
+              AMELIORATION DE LA PAGE GESTION DEMANDES ADMIN
+======================================================================*/
 
 .admin-demandes-page {
   background: #050505;
@@ -580,8 +579,8 @@ tbody tr:hover {
 
 
 /* =========================================================
-   ADMIN DASHBOARD UNIQUEMENT
-   ALERT BOX - NOUVELLES DEMANDES DU JOUR
+                   ADMIN DASHBOARD UNIQUEMENT
+             ALERT BOX - NOUVELLES DEMANDES DU JOUR
 ========================================================= */
 
 /* lien cliquable */
@@ -762,9 +761,9 @@ tbody tr:hover {
 
 
 
-
-
-
+/*==================================================================================================
+        LE CODE QUI GERES LES BOUTTON(3) ENVOI D'EMAIL, SUPPRESSION, ET DE MISE A JOUR DES STATUT
+===================================================================================================*/
 .sendMailBtn{
   background: #d4af37;
   color: #111;

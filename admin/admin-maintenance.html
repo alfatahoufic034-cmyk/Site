@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gestion Maintenance | Administration ALFA IT SERVICES</title>
+
+<link rel="stylesheet" href="../assets/css/admin-maintenance.css">
+
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+
+</head>
+
+
+<body>
+
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<nav>
+
+
+<a href="dashboard.html">
+
+<i class="fa-solid fa-chart-line"></i>
+
+Dashboard
+
+</a>
+
+
+<a href="demandes.html">
+
+<i class="fa-solid fa-file-circle-check"></i>
+
+Demandes
+
+</a>
+
+
+<a href="clients.html">
+
+<i class="fa-solid fa-users"></i>
+
+Clients
+
+</a>
+
+
+<a href="security.html">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+Sécurité
+
+</a>
+
+
+<a href="admin-maintenance.html"
+class="active">
+
+<i class="fa-solid fa-screwdriver-wrench"></i>
+
+Maintenance
+
+</a>
+
+
+<a href="#"
+id="logoutBtn">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Déconnexion
+
+</a>
+
+
+</nav>
+
+
+</aside>
+
+
+
+
+
+<!-- CONTENT -->
+
+
+<main class="content">
+
+
+<header class="top-header">
+
+
+<h1>
+
+Gestion de la maintenance
+
+</h1>
+
+
+<span>
+
+<i class="fa-solid fa-user-shield"></i>
+
+Super Administrateur
+
+</span>
+
+
+</header>
+
+
+
+
+
+<section class="maintenance-card">
+
+
+<div class="card-header">
+
+<h2>
+
+<i class="fa-solid fa-server"></i>
+
+État du système
+
+</h2>
+
+
+<span id="maintenanceStatus"
+class="status online">
+
+Site en ligne
+
+</span>
+
+
+</div>
+
+
+
+
+
+<div class="control-area">
+
+
+<button id="activateMaintenance"
+class="btn danger">
+
+
+<i class="fa-solid fa-power-off"></i>
+
+Activer la maintenance
+
+
+</button>
+
+
+
+<button id="disableMaintenance"
+class="btn success">
+
+
+<i class="fa-solid fa-circle-check"></i>
+
+Désactiver
+
+
+</button>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+<section class="maintenance-card">
+
+
+<h2>
+
+Configuration de la maintenance
+
+</h2>
+
+
+
+<div class="form-group">
+
+
+<label>
+
+Titre de la page
+
+</label>
+
+
+<input type="text"
+id="maintenanceTitle"
+value="Nous revenons très bientôt...">
+
+
+</div>
+
+
+
+
+<div class="form-group">
+
+
+<label>
+
+Message
+
+</label>
+
+
+<textarea id="maintenanceMessage">
+
+Notre équipe améliore actuellement la plateforme afin de vous offrir une meilleure expérience.
+
+</textarea>
+
+
+</div>
+
+
+
+
+
+<div class="form-grid">
+
+
+<div class="form-group">
+
+
+<label>
+
+Progression (%)
+
+</label>
+
+
+<input type="number"
+id="maintenanceProgress"
+min="0"
+max="100"
+value="65">
+
+
+</div>
+
+
+
+
+<div class="form-group">
+
+
+<label>
+
+Date de fin
+
+</label>
+
+
+<input type="datetime-local"
+id="maintenanceDate">
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<button id="saveMaintenance"
+class="save-btn">
+
+
+<i class="fa-solid fa-floppy-disk"></i>
+
+Enregistrer les modifications
+
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+<section class="preview">
+
+
+<h2>
+
+Aperçu
+
+</h2>
+
+
+
+<div class="preview-box">
+
+
+<i class="fa-solid fa-screwdriver-wrench"></i>
+
+
+<h3 id="previewTitle">
+
+Nous revenons très bientôt...
+
+</h3>
+
+
+<p id="previewMessage">
+
+Notre équipe améliore actuellement la plateforme.
+
+</p>
+
+
+
+<div class="preview-progress">
+
+
+<div id="previewBar"></div>
+
+
+</div>
+
+
+<span id="previewPercent">
+
+65%
+
+</span>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+</main>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="../assets/js/supabase.js"></script>
+
+<script src="../assets/js/admin-maintenance.js"></script>
+
+
+</body>
+
+</html>

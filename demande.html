@@ -204,6 +204,30 @@
         ></textarea>
       </div>
 
+      <!-- IMAGES DU PROBLEME -->
+<div class="form-group">
+  <label for="images">
+    Photos du problème
+    <span class="optional">(optionnel)</span>
+  </label>
+
+  <input
+    type="file"
+    id="images"
+    name="images"
+    accept="image/jpeg,image/png,image/webp"
+    multiple
+  >
+
+  <small class="file-help">
+    Vous pouvez ajouter plusieurs images (JPG, PNG ou WEBP).
+    Taille maximale : 5 Mo par image.
+  </small>
+
+  <!-- APERCU DES IMAGES -->
+  <div id="imagePreview" class="image-preview"></div>
+</div>
+
       <!-- LOCALISATION -->
       <div class="form-group">
         <label for="location">
