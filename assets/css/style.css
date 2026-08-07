@@ -3319,10 +3319,10 @@ footer{
 
 
 
-/* =================================================================== */
-/* NAVBAR MOBILE - START */menuµ de trois tirais pour les mobile
-/* =================================================================== */
-
+/* ===================================================================
+   NAVBAR MOBILE - START
+   Menu de trois traits pour mobile
+=================================================================== */
 /* Hamburger Menu Icon - Visible on Mobile Only */
 .hamburger {
   display: none;
